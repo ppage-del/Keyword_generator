@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Music Idea Randomizer</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <header class="hero">
+      <p class="hero-kicker">Music Idea Randomizer</p>
+      <h1>음악 창작 키워드 추첨기</h1>
+      <p class="hero-desc">
+        대주제를 1개 또는 2개 고르고, 각 대주제 안에 저장된
+        감정 / 이미지 / 행동 / 시공간 / 영어 키워드를 랜덤으로 추첨하세요.
+      </p>
+    </header>
+
+    <main class="main-grid">
+      <section class="panel">
+        <div class="panel-head">
+          <div>
+            <h2>대주제 선택</h2>
+            <p class="panel-sub">최대 2개까지 선택할 수 있어요.</p>
+          </div>
+          <div id="selectedSummary" class="selected-summary">
+            선택된 대주제: 없음
+          </div>
+        </div>
+
+        <div id="themeGrid" class="theme-grid"></div>
+      </section>
+
+      <section class="panel control-panel">
+        <div class="control-buttons">
+          <button id="drawBtn" class="btn btn-primary">랜덤 추첨</button>
+          <button id="resetBtn" class="btn btn-secondary">선택 초기화</button>
+          <button id="copyBtn" class="btn btn-ghost">결과 복사</button>
+        </div>
+        <p class="panel-note">
+          추천 장르 / BPM은 선택한 대주제들의 추천값을 합산해 상위 순서로 보여줍니다.
+        </p>
+      </section>
+
+      <section class="panel">
+        <div class="panel-head">
+          <div>
+            <h2>추첨 결과</h2>
+            <p class="panel-sub">랜덤 키워드와 추천 장르 / BPM</p>
+          </div>
+        </div>
+
+        <div id="emptyState" class="empty-state">
+          아직 추첨 결과가 없습니다. 대주제를 1개 이상 선택한 뒤
+          <strong>랜덤 추첨</strong> 버튼을 눌러보세요.
+        </div>
+
+        <div id="resultWrap" class="result-wrap is-hidden">
+          <div class="result-section">
+            <h3>선택된 대주제</h3>
+            <div id="selectedThemesView" class="selected-themes-view"></div>
+          </div>
+
+          <div class="result-section">
+            <h3>랜덤 키워드</h3>
+            <div id="keywordCards" class="keyword-cards"></div>
+          </div>
+
+          <div class="recommend-grid">
+            <div class="result-section">
+              <h3>추천 장르</h3>
+              <div id="genreRecommendations" class="recommend-list"></div>
+            </div>
+
+            <div class="result-section">
+              <h3>추천 BPM</h3>
+              <div id="bpmRecommendations" class="recommend-list"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="./app.js"></script>
+</body>
+</html>
