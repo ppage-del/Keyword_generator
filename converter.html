@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JSON 출력 변환기</title>
+  <style>
+    :root {
+      --bg: #0f1220;
+      --bg-2: #151a2f;
+      --panel: rgba(255,255,255,0.05);
+      --line: rgba(255,255,255,0.1);
+      --text: #f7f8fc;
+      --muted: #aab2cf;
+      --primary: #7c8cff;
+      --primary-strong: #6074ff;
+      --chip: #232942;
+      --danger: #ff6b81;
+      --success: #1fc98a;
+      --shadow: 0 18px 40px rgba(0,0,0,0.28);
+      --radius-xl: 22px;
+      --radius-lg: 18px;
+      --radius-md: 14px;
+      --radius-sm: 12px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Pretendard", "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 0% 0%, rgba(124, 140, 255, 0.16), transparent 28%),
+        radial-gradient(circle at 100% 0%, rgba(31, 201, 138, 0.10), transparent 22%),
+        linear-gradient(180deg, var(--bg), var(--bg-2));
+      min-height: 100vh;
+    }
+
+    .app {
+      width: min(1180px, calc(100% - 28px));
+      margin: 0 auto;
+      padding: 28px 0 48px;
+    }
+
+    .hero {
+      margin-bottom: 22px;
+    }
+
+    .hero-kicker {
+      margin: 0 0 10px;
+      color: #a6b2ff;
+      font-weight: 700;
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .hero h1 {
+      margin: 0 0 12px;
+      font-size: clamp(28px, 4vw, 42px);
+      line-height: 1.15;
+    }
+
+    .hero-desc {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.7;
+      max-width: 880px;
+    }
+
+    .layout {
+      display: grid;
+      gap: 16px;
+    }
+
+    .panel {
+      background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.03));
+      border: 1px solid var(--line);
+      border-radius: var(--radius-xl);
+      padding: 20px;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(8px);
+    }
+
+    .panel h2 {
+      margin: 0 0 6px;
+      font-size: 20px;
+    }
+
+    .panel h3 {
+      margin: 0 0 10px;
+      font-size: 16px;
+    }
+
+    .sub {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .field label {
+      font-size: 14px;
+      color: #dce3ff;
+      font-weight: 600;
+    }
+
+    .field small {
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    input,
+    textarea,
+    select {
+      width: 100%;
+      background: rgba(255,255,255,0.04);
+      color: var(--text);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      padding: 12px 14px;
+      font: inherit;
+      outline: none;
+    }
+
+    input:focus,
+    textarea:focus,
+    select:focus {
+      border-color: rgba(124, 140, 255, 0.8);
+      box-shadow: 0 0 0 3px rgba(124, 140, 255, 0.14);
+    }
+
+    textarea {
+      min-height: 200px;
+      resize: vertical;
+      line-height: 1.65;
+    }
+
+    .source-textarea {
+      min-height: 420px;
+    }
+
+    .json-textarea {
+      min-height: 160px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 13px;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    .btn {
+      appearance: none;
+      border: 0;
+      border-radius: var(--radius-md);
+      padding: 13px 18px;
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform 0.16s ease, opacity 0.16s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary), var(--primary-strong));
+      color: white;
+    }
+
+    .btn-secondary {
+      background: #303755;
+      color: white;
+    }
+
+    .btn-ghost {
+      background: transparent;
+      border: 1px solid var(--line);
+      color: #e3e8ff;
+    }
+
+    .btn-danger {
+      background: rgba(255, 107, 129, 0.15);
+      border: 1px solid rgba(255, 107, 129, 0.3);
+      color: #ffd7de;
+    }
+
+    .result-wrap {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 16px;
+    }
+
+    .result-box,
+    .preview-box {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      padding: 16px;
+    }
+
+    .preview-list {
+      display: grid;
+      gap: 10px;
+    }
+
+    .preview-item {
+      background: var(--chip);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      padding: 12px 14px;
+    }
+
+    .preview-item-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+
+    .preview-name {
+      font-weight: 700;
+    }
+
+    .preview-count {
+      font-size: 12px;
+      color: #cfdaff;
+      background: rgba(124, 140, 255, 0.15);
+      border: 1px solid rgba(124, 140, 255, 0.24);
+      border-radius: 999px;
+      padding: 4px 8px;
+      white-space: nowrap;
+    }
+
+    .preview-sample {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.55;
+      word-break: keep-all;
+    }
+
+    .output {
+      margin: 0;
+      white-space: pre-wrap;
+      word-break: break-word;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 13px;
+      line-height: 1.7;
+      min-height: 320px;
+    }
+
+    .empty {
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: var(--chip);
+      border: 1px solid var(--line);
+      font-size: 13px;
+      color: #dce3ff;
+    }
+
+    .toast {
+      position: fixed;
+      left: 50%;
+      bottom: 24px;
+      transform: translateX(-50%);
+      background: #20263d;
+      color: white;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 12px 16px;
+      box-shadow: var(--shadow);
+      z-index: 999;
+      font-size: 14px;
+    }
+
+    @media (max-width: 960px) {
+      .grid-2,
+      .grid-3,
+      .result-wrap {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .app {
+        width: min(100% - 18px, 1180px);
+        padding-top: 18px;
+      }
+
+      .panel {
+        padding: 16px;
+      }
+
+      .actions {
+        flex-direction: column;
+      }
+
+      .btn {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <header class="hero">
+      <p class="hero-kicker">JSON Output Converter</p>
+      <h1>키워드 텍스트 → themes용 JSON 변환기</h1>
+      <p class="hero-desc">
+        정리해둔 텍스트를 붙여넣으면 <strong>themes 배열에 바로 넣을 수 있는 JSON 객체</strong> 또는
+        <strong>keywordPools만 분리된 JSON</strong>으로 변환합니다.
+      </p>
+    </header>
+
+    <main class="layout">
+      <section class="panel">
+        <h2>기본 정보</h2>
+        <p class="sub">theme 객체에 들어갈 이름, id, 추천 장르/BPM을 같이 설정할 수 있어요.</p>
+
+        <div class="grid-3" style="margin-top:16px;">
+          <div class="field">
+            <label for="labelKo">대주제 한글명</label>
+            <input id="labelKo" type="text" placeholder="예: 회상" value="회상" />
+          </div>
+
+          <div class="field">
+            <label for="labelEn">대주제 영어명</label>
+            <input id="labelEn" type="text" placeholder="예: Nostalgia" value="Nostalgia" />
+          </div>
+
+          <div class="field">
+            <label for="themeId">id</label>
+            <input id="themeId" type="text" placeholder="예: nostalgia" value="nostalgia" />
+            <small>비워두면 영어명을 기준으로 자동 생성</small>
+          </div>
+        </div>
+
+        <div class="grid-2" style="margin-top:16px;">
+          <div class="field">
+            <label for="genresInput">추천 장르 배열(JSON)</label>
+            <textarea id="genresInput" class="json-textarea" spellcheck="false">[]</textarea>
+            <small>
+              예:
+              [
+                { "genreId": "dream_pop", "weight": 4, "reason": "몽환적인 기억 표현에 적합" }
+              ]
+            </small>
+          </div>
+
+          <div class="field">
+            <label for="bpmsInput">추천 BPM 배열(JSON)</label>
+            <textarea id="bpmsInput" class="json-textarea" spellcheck="false">[]</textarea>
+            <small>
+              예:
+              [
+                { "bpmId": "slow_mid_76_90", "weight": 5, "reason": "회상 특유의 느린 흐름에 적합" }
+              ]
+            </small>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel">
+        <h2>원본 텍스트 붙여넣기</h2>
+        <p class="sub">
+          감정 / 이미지 / 행동 / 시공간 / 영어 키워드 헤더를 자동으로 인식합니다.
+        </p>
+
+        <div class="field" style="margin-top:16px;">
+          <label for="sourceInput">원본 키워드 텍스트</label>
+          <textarea id="sourceInput" class="source-textarea" spellcheck="false" placeholder="예:
+회상(Nostalgia) 키워드 종합 사전 - 각 카테고리별 50선
+
+🎭 감정 키워드 50선
+그리움
+아련함
+
+🖼️ 이미지 키워드 50선
+빛바랜 사진
+흑백 필름
+
+🤲 행동 키워드 50선
+사진 앨범을 넘겨 보기
+
+🕰️ 시공간 키워드 50선
+황혼
+오래된 골목
+
+🔤 영어 키워드 50선
+Nostalgia
+Reminiscence"></textarea>
+        </div>
+
+        <div class="actions">
+          <button class="btn btn-primary" id="convertThemeBtn">theme JSON 변환</button>
+          <button class="btn btn-secondary" id="convertPoolsBtn">keywordPools만 변환</button>
+          <button class="btn btn-ghost" id="copyBtn">출력 복사</button>
+          <button class="btn btn-ghost" id="downloadBtn">json 다운로드</button>
+          <button class="btn btn-danger" id="clearBtn">출력 지우기</button>
+        </div>
+
+        <div class="chip-row">
+          <div class="chip">감정</div>
+          <div class="chip">이미지</div>
+          <div class="chip">행동</div>
+          <div class="chip">시공간</div>
+          <div class="chip">영어 키워드</div>
+        </div>
+      </section>
+
+      <section class="result-wrap">
+        <div class="preview-box">
+          <h2>파싱 미리보기</h2>
+          <p class="sub" style="margin-bottom:16px;">카테고리별 인식 개수와 일부 예시를 보여줍니다.</p>
+          <div id="previewArea" class="preview-list">
+            <div class="empty">아직 변환 전입니다.</div>
+          </div>
+        </div>
+
+        <div class="result-box">
+          <h2>JSON 출력</h2>
+          <p class="sub" style="margin-bottom:16px;">복사해서 data.json의 themes 배열에 붙여넣으면 됩니다.</p>
+          <pre id="outputArea" class="output">아직 출력이 없습니다.</pre>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    const CATEGORY_MAP = [
+      { key: "감정", aliases: ["감정"] },
+      { key: "이미지", aliases: ["이미지"] },
+      { key: "행동", aliases: ["행동"] },
+      { key: "시공간", aliases: ["시공간"] },
+      { key: "영어 키워드", aliases: ["영어 키워드", "영어", "english", "English"] }
+    ];
+
+    const defaultKeywordPools = () => ({
+      "감정": [],
+      "이미지": [],
+      "행동": [],
+      "시공간": [],
+      "영어 키워드": []
+    });
+
+    const els = {
+      labelKo: document.getElementById("labelKo"),
+      labelEn: document.getElementById("labelEn"),
+      themeId: document.getElementById("themeId"),
+      genresInput: document.getElementById("genresInput"),
+      bpmsInput: document.getElementById("bpmsInput"),
+      sourceInput: document.getElementById("sourceInput"),
+      convertThemeBtn: document.getElementById("convertThemeBtn"),
+      convertPoolsBtn: document.getElementById("convertPoolsBtn"),
+      copyBtn: document.getElementById("copyBtn"),
+      downloadBtn: document.getElementById("downloadBtn"),
+      clearBtn: document.getElementById("clearBtn"),
+      previewArea: document.getElementById("previewArea"),
+      outputArea: document.getElementById("outputArea")
+    };
+
+    let latestOutput = "";
+
+    bindEvents();
+
+    function bindEvents() {
+      els.convertThemeBtn.addEventListener("click", handleConvertTheme);
+      els.convertPoolsBtn.addEventListener("click", handleConvertPoolsOnly);
+      els.copyBtn.addEventListener("click", handleCopy);
+      els.downloadBtn.addEventListener("click", handleDownload);
+      els.clearBtn.addEventListener("click", handleClear);
+
+      els.labelEn.addEventListener("input", syncIdIfEmptyLikeAuto);
+      els.labelKo.addEventListener("input", syncIdIfEmptyLikeAuto);
+    }
+
+    function syncIdIfEmptyLikeAuto() {
+      const currentId = els.themeId.value.trim();
+      const autoId = makeThemeId(els.labelEn.value.trim(), els.labelKo.value.trim());
+
+      if (!currentId || currentId === makeThemeIdFromStored()) {
+        els.themeId.value = autoId;
+      }
+    }
+
+    function makeThemeIdFromStored() {
+      return makeThemeId(els.labelEn.defaultValue || "", els.labelKo.defaultValue || "");
+    }
+
+    function makeThemeId(labelEn, labelKo) {
+      if (labelEn) {
+        return labelEn
+          .toLowerCase()
+          .replace(/[^a-z0-9]+/g, "_")
+          .replace(/^_+|_+$/g, "")
+          .replace(/_+/g, "_");
+      }
+
+      if (labelKo) {
+        return labelKo
+          .trim()
+          .replace(/\s+/g, "_");
+      }
+
+      return "";
+    }
+
+    function cleanLine(line) {
+      return line
+        .replace(/\u00A0/g, " ")
+        .replace(/^\s*[-•·▪︎◦]\s*/, "")
+        .replace(/^\s*\d+\.\s*/, "")
+        .replace(/^\s*\d+\)\s*/, "")
+        .trim();
+    }
+
+    function shouldSkipLine(line) {
+      if (!line) return true;
+      if (line.includes("키워드 종합 사전")) return true;
+      if (line.includes("각 카테고리별")) return true;
+      return false;
+    }
+
+    function detectCategory(line) {
+      const normalized = line
+        .replace(/[🎭🖼️🤲🕰️🔤✨⭐️]/g, "")
+        .replace(/\d+/g, "")
+        .trim();
+
+      for (const category of CATEGORY_MAP) {
+        for (const alias of category.aliases) {
+          if (normalized.includes(alias)) {
+            return category.key;
+          }
+        }
+      }
+
+      return null;
+    }
+
+    function parseSourceText(text) {
+      const result = defaultKeywordPools();
+      const lines = text.split("\n").map(cleanLine);
+      let currentCategory = null;
+
+      for (const raw of lines) {
+        const line = raw.trim();
+        if (shouldSkipLine(line)) continue;
+
+        const detected = detectCategory(line);
+        if (detected) {
+          currentCategory = detected;
+          continue;
+        }
+
+        if (!currentCategory) continue;
+        if (!line) continue;
+
+        result[currentCategory].push(line);
+      }
+
+      for (const key of Object.keys(result)) {
+        result[key] = dedupeStrings(result[key]);
+      }
+
+      return result;
+    }
+
+    function dedupeStrings(arr) {
+      return [...new Set(arr.map(v => String(v).trim()).filter(Boolean))];
+    }
+
+    function safeParseArrayJson(text, fallback = []) {
+      try {
+        const parsed = JSON.parse(text);
+        return Array.isArray(parsed) ? parsed : fallback;
+      } catch {
+        return fallback;
+      }
+    }
+
+    function buildThemeObject(keywordPools) {
+      const label = els.labelKo.value.trim();
+      const labelEn = els.labelEn.value.trim();
+      const themeId = els.themeId.value.trim() || makeThemeId(labelEn, label);
+
+      return {
+        id: themeId,
+        label,
+        labelEn,
+        recommendations: {
+          genres: safeParseArrayJson(els.genresInput.value, []),
+          bpms: safeParseArrayJson(els.bpmsInput.value, [])
+        },
+        keywordPools
+      };
+    }
+
+    function handleConvertTheme() {
+      const source = els.sourceInput.value.trim();
+      if (!source) {
+        showToast("먼저 원본 텍스트를 붙여넣어주세요.");
+        return;
+      }
+
+      const keywordPools = parseSourceText(source);
+      renderPreview(keywordPools);
+
+      const themeObject = buildThemeObject(keywordPools);
+      latestOutput = JSON.stringify(themeObject, null, 2);
+      els.outputArea.textContent = latestOutput;
+      showToast("theme JSON으로 변환했어요.");
+    }
+
+    function handleConvertPoolsOnly() {
+      const source = els.sourceInput.value.trim();
+      if (!source) {
+        showToast("먼저 원본 텍스트를 붙여넣어주세요.");
+        return;
+      }
+
+      const keywordPools = parseSourceText(source);
+      renderPreview(keywordPools);
+
+      latestOutput = JSON.stringify(keywordPools, null, 2);
+      els.outputArea.textContent = latestOutput;
+      showToast("keywordPools JSON으로 변환했어요.");
+    }
+
+    function renderPreview(keywordPools) {
+      const entries = Object.entries(keywordPools);
+
+      const html = entries.map(([category, items]) => {
+        const sample = items.slice(0, 3).join(" / ") || "없음";
+        return `
+          <div class="preview-item">
+            <div class="preview-item-top">
+              <div class="preview-name">${escapeHtml(category)}</div>
+              <div class="preview-count">${items.length}개</div>
+            </div>
+            <div class="preview-sample">${escapeHtml(sample)}</div>
+          </div>
+        `;
+      }).join("");
+
+      els.previewArea.innerHTML = html;
+    }
+
+    async function handleCopy() {
+      if (!latestOutput) {
+        showToast("복사할 출력이 없습니다.");
+        return;
+      }
+
+      try {
+        await navigator.clipboard.writeText(latestOutput);
+        showToast("JSON 출력을 복사했어요.");
+      } catch (error) {
+        console.error(error);
+        showToast("복사에 실패했어요.");
+      }
+    }
+
+    function handleDownload() {
+      if (!latestOutput) {
+        showToast("다운로드할 출력이 없습니다.");
+        return;
+      }
+
+      const nameBase =
+        els.themeId.value.trim() ||
+        makeThemeId(els.labelEn.value.trim(), els.labelKo.value.trim()) ||
+        "theme";
+
+      const blob = new Blob([latestOutput], { type: "application/json;charset=utf-8" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = `${nameBase}.json`;
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      URL.revokeObjectURL(url);
+
+      showToast("json 파일을 다운로드했어요.");
+    }
+
+    function handleClear() {
+      latestOutput = "";
+      els.previewArea.innerHTML = `<div class="empty">아직 변환 전입니다.</div>`;
+      els.outputArea.textContent = "아직 출력이 없습니다.";
+      showToast("출력을 비웠어요.");
+    }
+
+    function escapeHtml(value) {
+      return String(value ?? "")
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#39;");
+    }
+
+    function showToast(message) {
+      const oldToast = document.querySelector(".toast");
+      if (oldToast) oldToast.remove();
+
+      const toast = document.createElement("div");
+      toast.className = "toast";
+      toast.textContent = message;
+      document.body.appendChild(toast);
+
+      setTimeout(() => {
+        toast.remove();
+      }, 1800);
+    }
+  </script>
+</body>
+</html>
