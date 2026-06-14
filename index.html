@@ -9,6 +9,10 @@
 <body>
   <div class="app-shell">
     <header class="hero">
+      <div class="top-nav">
+        <a class="nav-link" href="./index.html">추첨기</a>
+        <a class="nav-link" href="./converter.html">JSON 변환기</a>
+      </div>
       <p class="hero-kicker">Music Idea Randomizer</p>
       <h1>음악 창작 키워드 추첨기</h1>
       <p class="hero-desc">
@@ -18,6 +22,26 @@
     </header>
 
     <main class="main-grid">
+      <section class="panel">
+        <div class="panel-head">
+          <div>
+            <h2>BPM / 장르 가이드</h2>
+            <p class="panel-sub">라이브러리에 적어둔 BPM/장르 참고 정보</p>
+          </div>
+        </div>
+
+        <div class="guide-grid">
+          <div class="guide-block">
+            <h3>BPM 가이드</h3>
+            <div id="bpmLibraryView" class="guide-list"></div>
+          </div>
+
+          <div class="guide-block">
+            <h3>장르 가이드</h3>
+            <div id="genreLibraryView" class="guide-list"></div>
+          </div>
+        </div>
+      </section>
       <section class="panel">
         <div class="panel-head">
           <div>
@@ -35,8 +59,9 @@
       <section class="panel control-panel">
         <div class="control-buttons">
           <button id="drawBtn" class="btn btn-primary">랜덤 추첨</button>
-          <button id="resetBtn" class="btn btn-secondary">선택 초기화</button>
+          <button id="copyKeywordsBtn" class="btn btn-secondary">전체 키워드 복사</button>
           <button id="copyBtn" class="btn btn-ghost">결과 복사</button>
+          <button id="resetBtn" class="btn btn-ghost">선택 초기화</button>
         </div>
         <p class="panel-note">
           추천 장르 / BPM은 선택한 대주제들의 추천값을 합산해 상위 순서로 보여줍니다.
@@ -57,6 +82,10 @@
         </div>
 
         <div id="resultWrap" class="result-wrap is-hidden">
+          <div class="result-section">
+            <h3>선택 주제별 추천</h3>
+            <div id="themeRecommendationsView" class="theme-recommend-grid"></div>
+          </div>
           <div class="result-section">
             <h3>선택된 대주제</h3>
             <div id="selectedThemesView" class="selected-themes-view"></div>
