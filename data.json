@@ -13,109 +13,812 @@
     "시공간",
     "영어 키워드"
   ],
-  "genreLibrary": {
-    "ballad": { "label": "Ballad" },
-    "rnb": { "label": "R&B" },
-    "alt_pop": { "label": "Alt Pop" },
-    "dream_pop": { "label": "Dream Pop" },
-    "indie_rock": { "label": "Indie Rock" },
-    "ambient": { "label": "Ambient" },
-    "trip_hop": { "label": "Trip Hop" },
-    "house": { "label": "House" },
-    "techno": { "label": "Techno" },
-    "drum_and_bass": { "label": "Drum & Bass" },
-    "folk_pop": { "label": "Folk Pop" },
-    "cinematic_pop": { "label": "Cinematic Pop" }
+    "genreLibrary": {
+    "ballad": {
+      "label": "Ballad",
+      "description": "감정 전달과 멜로디 중심의 서정적 장르",
+      "typicalBpm": ["slow_60_75", "slow_mid_76_90"]
+    },
+    "rnb": {
+      "label": "R&B",
+      "description": "그루브와 친밀한 보컬 톤, 감정선이 중요한 장르",
+      "typicalBpm": ["slow_60_75", "slow_mid_76_90", "mid_91_105"]
+    },
+    "hip_hop": {
+      "label": "Hip Hop",
+      "description": "리듬 중심 전개와 말맛, 무드 설계가 중요한 장르",
+      "typicalBpm": ["slow_mid_76_90", "mid_91_105"]
+    },
+    "pop": {
+      "label": "Pop",
+      "description": "대중성과 멜로디 중심성이 강한 장르",
+      "typicalBpm": ["mid_91_105", "mid_up_106_120", "up_121_135"]
+    },
+    "alt_pop": {
+      "label": "Alt Pop",
+      "description": "대중성과 실험성이 적당히 섞인 현대 팝",
+      "typicalBpm": ["slow_mid_76_90", "mid_91_105", "mid_up_106_120"]
+    },
+    "dream_pop": {
+      "label": "Dream Pop",
+      "description": "몽환적이고 잔향감이 큰 질감 중심 장르",
+      "typicalBpm": ["slow_mid_76_90", "mid_91_105"]
+    },
+    "indie_rock": {
+      "label": "Indie Rock",
+      "description": "밴드 질감과 직선적 에너지, 청춘성이 있는 장르",
+      "typicalBpm": ["mid_up_106_120", "up_121_135"]
+    },
+    "folk_pop": {
+      "label": "Folk Pop",
+      "description": "어쿠스틱 온기와 대중적 멜로디의 결합",
+      "typicalBpm": ["slow_mid_76_90", "mid_91_105"]
+    },
+    "ambient": {
+      "label": "Ambient",
+      "description": "공간감, 질감, 여백 중심의 장르",
+      "typicalBpm": ["free_or_very_slow", "slow_60_75", "slow_mid_76_90"]
+    },
+    "trip_hop": {
+      "label": "Trip Hop",
+      "description": "어둡고 느린 도시적 그루브, 내면 독백에 잘 맞는 장르",
+      "typicalBpm": ["slow_mid_76_90", "mid_91_105"]
+    },
+    "house": {
+      "label": "House",
+      "description": "댄서블한 4비트 중심 전개",
+      "typicalBpm": ["up_121_135"]
+    },
+    "techno": {
+      "label": "Techno",
+      "description": "반복과 추진력이 강한 전자음악",
+      "typicalBpm": ["up_121_135", "fast_136_150"]
+    },
+    "trance": {
+      "label": "Trance",
+      "description": "상승감과 몰입감, 빌드업이 강한 전자음악",
+      "typicalBpm": ["fast_136_150"]
+    },
+    "drum_and_bass": {
+      "label": "Drum & Bass",
+      "description": "고속 질주감과 타이트한 리듬 중심 장르",
+      "typicalBpm": ["very_fast_160_180"]
+    },
+    "cinematic_pop": {
+      "label": "Cinematic Pop",
+      "description": "장면감, 서사, 넓은 공간감을 가진 팝",
+      "typicalBpm": ["slow_60_75", "slow_mid_76_90", "mid_91_105"]
+    }
   },
   "bpmLibrary": {
-    "free_or_very_slow": { "label": "Free / Very Slow" },
-    "slow_60_75": { "label": "60-75 BPM" },
-    "slow_mid_76_90": { "label": "76-90 BPM" },
-    "mid_91_105": { "label": "91-105 BPM" },
-    "mid_up_106_120": { "label": "106-120 BPM" },
-    "up_121_135": { "label": "121-135 BPM" },
-    "fast_136_150": { "label": "136-150 BPM" },
-    "very_fast_160_180": { "label": "160-180 BPM" }
+    "free_or_very_slow": {
+      "label": "Free / Very Slow",
+      "range": [0, 59],
+      "notes": "박보다 공기감과 질감이 앞서는 영역",
+      "recommendedGenres": ["ambient"]
+    },
+    "slow_60_75": {
+      "label": "60-75 BPM",
+      "range": [60, 75],
+      "notes": "서정, 애도, 고독, 무게감, 깊은 여백에 적합",
+      "recommendedGenres": ["ballad", "rnb", "ambient", "cinematic_pop"]
+    },
+    "slow_mid_76_90": {
+      "label": "76-90 BPM",
+      "range": [76, 90],
+      "notes": "회상, 잔잔한 그루브, 도시적 감성, 친밀한 보컬에 적합",
+      "recommendedGenres": ["rnb", "dream_pop", "trip_hop", "folk_pop", "ballad"]
+    },
+    "mid_91_105": {
+      "label": "91-105 BPM",
+      "range": [91, 105],
+      "notes": "감정과 리듬이 공존하는 가장 유연한 구간",
+      "recommendedGenres": ["alt_pop", "pop", "hip_hop", "rnb", "cinematic_pop"]
+    },
+    "mid_up_106_120": {
+      "label": "106-120 BPM",
+      "range": [106, 120],
+      "notes": "전진감, 성장성, 밴드감, 대중적인 에너지에 적합",
+      "recommendedGenres": ["pop", "indie_rock"]
+    },
+    "up_121_135": {
+      "label": "121-135 BPM",
+      "range": [121, 135],
+      "notes": "고양감, 해방감, 댄서블함이 강한 구간",
+      "recommendedGenres": ["house", "pop", "indie_rock", "techno"]
+    },
+    "fast_136_150": {
+      "label": "136-150 BPM",
+      "range": [136, 150],
+      "notes": "긴장, 몰입, 과열감, 상승감이 강한 구간",
+      "recommendedGenres": ["techno", "trance"]
+    },
+    "very_fast_160_180": {
+      "label": "160-180 BPM",
+      "range": [160, 180],
+      "notes": "폭주, 해방, 혼란, 극적인 에너지에 적합",
+      "recommendedGenres": ["drum_and_bass"]
+    }
+  },
+   "themeRecommendations": {
+    "love": {
+      "genres": [
+        { "genreId": "rnb", "weight": 5, "reason": "친밀한 감정선과 보컬 표현에 잘 맞음" },
+        { "genreId": "dream_pop", "weight": 4, "reason": "설렘과 몽환적 정서를 살리기 좋음" },
+        { "genreId": "ballad", "weight": 4, "reason": "직접적인 감정 전달에 강함" },
+        { "genreId": "alt_pop", "weight": 3, "reason": "현대적인 사랑 서사로 확장 가능" }
+      ],
+      "bpms": [
+        { "bpmId": "slow_mid_76_90", "weight": 5, "reason": "잔잔하고 감정적인 흐름에 적합" },
+        { "bpmId": "mid_91_105", "weight": 4, "reason": "대중적이고 자연스러운 그루브를 만들기 좋음" }
+      ]
+    },
+    "breakup": {
+      "genres": [
+        { "genreId": "ballad", "weight": 5, "reason": "상실과 후회를 직접적으로 전달하기 좋음" },
+        { "genreId": "rnb", "weight": 4, "reason": "잔향과 여백이 남는 이별 무드에 적합" },
+        { "genreId": "trip_hop", "weight": 3, "reason": "도시적이고 어두운 이별 감정에 어울림" },
+        { "genreId": "cinematic_pop", "weight": 3, "reason": "드라마틱한 전개에 유리함" }
+      ],
+      "bpms": [
+        { "bpmId": "slow_60_75", "weight": 5, "reason": "슬픔과 공백을 크게 확보할 수 있음" },
+        { "bpmId": "slow_mid_76_90", "weight": 4, "reason": "너무 처지지 않으면서 감정선을 유지함" }
+      ]
+    },
+    "happiness": {
+      "genres": [
+        { "genreId": "pop", "weight": 5, "reason": "가장 직관적으로 밝음과 대중성을 전달함" },
+        { "genreId": "house", "weight": 4, "reason": "몸이 움직이는 기쁨과 축제감에 적합" },
+        { "genreId": "indie_rock", "weight": 3, "reason": "활기와 밴드 에너지를 살리기 좋음" },
+        { "genreId": "alt_pop", "weight": 3, "reason": "조금 더 세련된 밝음을 만들기 좋음" }
+      ],
+      "bpms": [
+        { "bpmId": "mid_up_106_120", "weight": 5, "reason": "생기 있고 들뜬 에너지를 표현하기 좋음" },
+        { "bpmId": "up_121_135", "weight": 4, "reason": "축제감과 고양감을 강하게 만들 수 있음" },
+        { "bpmId": "mid_91_105", "weight": 2, "reason": "잔잔한 행복이나 미디엄 팝에도 적합" }
+      ]
+    },
+    "sadness": {
+      "genres": [
+        { "genreId": "ballad", "weight": 5, "reason": "슬픔의 정서를 가장 직접적으로 담기 좋음" },
+        { "genreId": "ambient", "weight": 4, "reason": "정지감과 공허감을 크게 살릴 수 있음" },
+        { "genreId": "rnb", "weight": 3, "reason": "조용하고 깊은 슬픔을 친밀하게 표현 가능" },
+        { "genreId": "cinematic_pop", "weight": 3, "reason": "장면감 있는 슬픔과 감정 고조에 적합" }
+      ],
+      "bpms": [
+        { "bpmId": "slow_60_75", "weight": 5, "reason": "애도와 무게감, 침잠감을 크게 만듦" },
+        { "bpmId": "slow_mid_76_90", "weight": 4, "reason": "잔잔한 슬픔과 회상성에 잘 맞음" }
+      ]
+    },
+    "hope": {
+      "genres": [
+        { "genreId": "indie_rock", "weight": 4, "reason": "전진감과 성장 서사를 함께 만들기 좋음" },
+        { "genreId": "alt_pop", "weight": 4, "reason": "현대적이고 가벼운 상승감 표현에 적합" },
+        { "genreId": "cinematic_pop", "weight": 3, "reason": "확장감 있는 희망 서사에 잘 맞음" },
+        { "genreId": "pop", "weight": 3, "reason": "보편적인 상승 정서 전달에 강함" }
+      ],
+      "bpms": [
+        { "bpmId": "mid_up_106_120", "weight": 5, "reason": "전진감과 활기를 살리기 좋음" },
+        { "bpmId": "mid_91_105", "weight": 4, "reason": "차분하게 올라가는 서사에 적합" },
+        { "bpmId": "up_121_135", "weight": 2, "reason": "더 확실한 고양감이 필요할 때 좋음" }
+      ]
+    },
+    "despair": {
+      "genres": [
+        { "genreId": "ambient", "weight": 5, "reason": "무너짐과 정적을 크게 살릴 수 있음" },
+        { "genreId": "trip_hop", "weight": 4, "reason": "어두운 도시적 절망에 적합함" },
+        { "genreId": "cinematic_pop", "weight": 3, "reason": "극적인 붕괴감에 유리함" },
+        { "genreId": "alt_pop", "weight": 2, "reason": "현대적 우울과 내면 독백에 맞음" }
+      ],
+      "bpms": [
+        { "bpmId": "slow_60_75", "weight": 5, "reason": "무게감과 정지감을 강조함" },
+        { "bpmId": "slow_mid_76_90", "weight": 3, "reason": "침잠하되 약한 맥박감을 남길 수 있음" }
+      ]
+    },
+    "peace": {
+      "genres": [
+        { "genreId": "ambient", "weight": 4, "reason": "정적과 공간감을 부드럽게 만들기 좋음" },
+        { "genreId": "folk_pop", "weight": 4, "reason": "인간적인 온기와 안정감이 살아남" },
+        { "genreId": "dream_pop", "weight": 3, "reason": "부유감 있는 평온을 만들기 좋음" },
+        { "genreId": "ballad", "weight": 2, "reason": "조용한 위로와 안정을 전달함" }
+      ],
+      "bpms": [
+        { "bpmId": "slow_60_75", "weight": 4, "reason": "호흡이 느린 평온함에 적합" },
+        { "bpmId": "slow_mid_76_90", "weight": 4, "reason": "잔잔한 흐름과 따뜻함을 유지함" }
+      ]
+    },
+    "anger": {
+      "genres": [
+        { "genreId": "techno", "weight": 4, "reason": "압박감과 반복 에너지가 분노와 잘 맞음" },
+        { "genreId": "indie_rock", "weight": 4, "reason": "직선적인 폭발감 표현에 유리함" },
+        { "genreId": "drum_and_bass", "weight": 3, "reason": "질주감 있는 과격한 감정 표현 가능" },
+        { "genreId": "hip_hop", "weight": 3, "reason": "선명한 어조와 공격적 리듬감에 적합" }
+      ],
+      "bpms": [
+        { "bpmId": "fast_136_150", "weight": 4, "reason": "과열된 긴장과 에너지를 만들기 좋음" },
+        { "bpmId": "up_121_135", "weight": 3, "reason": "폭발 직전의 추진감을 표현함" },
+        { "bpmId": "very_fast_160_180", "weight": 2, "reason": "통제 불가능한 분출감에 적합" }
+      ]
+    },
+    "anxiety": {
+      "genres": [
+        { "genreId": "trip_hop", "weight": 4, "reason": "도시적 긴장과 불안을 잘 담아냄" },
+        { "genreId": "alt_pop", "weight": 4, "reason": "현대적이고 개인적인 불안 서사에 적합" },
+        { "genreId": "ambient", "weight": 3, "reason": "떠도는 감정과 숨막힘을 살리기 좋음" },
+        { "genreId": "techno", "weight": 2, "reason": "강박적 반복과 압박감을 표현할 수 있음" }
+      ],
+      "bpms": [
+        { "bpmId": "mid_91_105", "weight": 4, "reason": "불안한 맥박감과 현대적 팝 감성에 적합" },
+        { "bpmId": "slow_mid_76_90", "weight": 3, "reason": "내면 독백 같은 긴장감에 잘 맞음" },
+        { "bpmId": "fast_136_150", "weight": 2, "reason": "과열된 초조함을 강조할 때 유효함" }
+      ]
+    },
+    "growth": {
+      "genres": [
+        { "genreId": "indie_rock", "weight": 5, "reason": "청춘성과 전진감을 함께 표현하기 좋음" },
+        { "genreId": "alt_pop", "weight": 4, "reason": "현대적인 성장 서사에 잘 어울림" },
+        { "genreId": "folk_pop", "weight": 3, "reason": "인간적인 온기와 성찰을 담기 좋음" },
+        { "genreId": "pop", "weight": 2, "reason": "보다 대중적인 상승 무드로 풀어낼 수 있음" }
+      ],
+      "bpms": [
+        { "bpmId": "mid_up_106_120", "weight": 5, "reason": "전진감과 활력을 가장 잘 구현함" },
+        { "bpmId": "mid_91_105", "weight": 3, "reason": "차분한 성장 서사에도 적합" }
+      ]
+    },
+    "nostalgia": {
+      "genres": [
+        { "genreId": "dream_pop", "weight": 4, "reason": "희미한 기억과 잔향을 표현하기 좋음" },
+        { "genreId": "folk_pop", "weight": 4, "reason": "가까운 기억과 인간적인 온기를 담기 좋음" },
+        { "genreId": "ballad", "weight": 3, "reason": "직접적인 회상 감정 전달에 유리함" },
+        { "genreId": "ambient", "weight": 2, "reason": "흐릿한 장면과 시간 정지를 표현하기 좋음" },
+        { "genreId": "cinematic_pop", "weight": 2, "reason": "기억의 장면감과 서사 확장에 유리함" }
+      ],
+      "bpms": [
+        { "bpmId": "slow_mid_76_90", "weight": 5, "reason": "회상 특유의 느린 흐름과 잘 맞음" },
+        { "bpmId": "slow_60_75", "weight": 2, "reason": "더 깊고 고요한 향수에 적합함" },
+        { "bpmId": "mid_91_105", "weight": 2, "reason": "대중적인 회상 팝으로 확장 가능함" }
+      ]
+    },
+    "meeting": {
+      "genres": [
+        { "genreId": "pop", "weight": 4, "reason": "만남의 밝음과 대중적 설렘에 적합함" },
+        { "genreId": "rnb", "weight": 4, "reason": "친밀한 두 사람의 거리감을 표현하기 좋음" },
+        { "genreId": "indie_rock", "weight": 3, "reason": "생생한 현장감과 활기를 더해줌" },
+        { "genreId": "folk_pop", "weight": 2, "reason": "소박하고 따뜻한 첫 만남 무드에 어울림" }
+      ],
+      "bpms": [
+        { "bpmId": "mid_91_105", "weight": 4, "reason": "자연스럽고 두근거리는 만남 무드에 적합" },
+        { "bpmId": "mid_up_106_120", "weight": 3, "reason": "활기 있는 첫 만남이나 재회에 잘 맞음" }
+      ]
+    },
+    "parting": {
+      "genres": [
+        { "genreId": "ballad", "weight": 5, "reason": "마지막 인사와 상실을 직접적으로 담기 좋음" },
+        { "genreId": "cinematic_pop", "weight": 4, "reason": "장면처럼 남는 이별이나 떠남에 적합" },
+        { "genreId": "rnb", "weight": 3, "reason": "여운이 남는 작별 무드에 유리함" },
+        { "genreId": "ambient", "weight": 2, "reason": "멈춘 시간 같은 정서를 살릴 수 있음" }
+      ],
+      "bpms": [
+        { "bpmId": "slow_60_75", "weight": 4, "reason": "무게감 있는 작별에 잘 어울림" },
+        { "bpmId": "slow_mid_76_90", "weight": 4, "reason": "잔잔한 이별과 긴 여운을 만들기 좋음" }
+      ]
+    },
+    "beginning": {
+      "genres": [
+        { "genreId": "pop", "weight": 4, "reason": "새 출발의 선명함과 보편성을 전달하기 좋음" },
+        { "genreId": "indie_rock", "weight": 4, "reason": "청춘적인 스타트 무드에 잘 맞음" },
+        { "genreId": "alt_pop", "weight": 3, "reason": "현대적인 첫 장면 연출에 적합함" },
+        { "genreId": "house", "weight": 2, "reason": "가볍게 도약하는 시작감 표현 가능" }
+      ],
+      "bpms": [
+        { "bpmId": "mid_up_106_120", "weight": 4, "reason": "움직이기 시작하는 에너지에 적합" },
+        { "bpmId": "up_121_135", "weight": 3, "reason": "더 확실한 출발감과 고양감을 만듦" },
+        { "bpmId": "mid_91_105", "weight": 2, "reason": "차분한 새 출발 서사에도 유효함" }
+      ]
+    },
+    "ending": {
+      "genres": [
+        { "genreId": "ballad", "weight": 4, "reason": "끝맺음의 감정 전달이 직관적임" },
+        { "genreId": "cinematic_pop", "weight": 4, "reason": "마지막 장면 같은 서사 마감에 유리함" },
+        { "genreId": "ambient", "weight": 3, "reason": "사라짐과 정리의 공기를 만들기 좋음" },
+        { "genreId": "dream_pop", "weight": 2, "reason": "잔향처럼 흩어지는 엔딩에 적합" }
+      ],
+      "bpms": [
+        { "bpmId": "slow_60_75", "weight": 4, "reason": "무게 있는 마무리와 작별감에 적합" },
+        { "bpmId": "slow_mid_76_90", "weight": 4, "reason": "잔잔한 정리와 여운에 좋음" }
+      ]
+    },
+    "friendship": {
+      "genres": [
+        { "genreId": "indie_rock", "weight": 4, "reason": "우정의 활기와 생동감을 살리기 좋음" },
+        { "genreId": "pop", "weight": 4, "reason": "밝고 친근한 공동의 정서를 만들기 쉬움" },
+        { "genreId": "folk_pop", "weight": 3, "reason": "소박하고 따뜻한 관계성 표현에 적합" },
+        { "genreId": "alt_pop", "weight": 2, "reason": "조금 더 세련된 우정 서사로 풀 수 있음" }
+      ],
+      "bpms": [
+        { "bpmId": "mid_91_105", "weight": 3, "reason": "편안하고 친근한 템포감에 적합" },
+        { "bpmId": "mid_up_106_120", "weight": 4, "reason": "함께 움직이는 활기와 에너지를 줌" }
+      ]
+    },
+    "betrayal": {
+      "genres": [
+        { "genreId": "trip_hop", "weight": 4, "reason": "서늘하고 불신 가득한 무드에 어울림" },
+        { "genreId": "alt_pop", "weight": 4, "reason": "현대적 배신감과 내면 독백을 담기 좋음" },
+        { "genreId": "techno", "weight": 2, "reason": "차갑고 강박적인 긴장감을 만들 수 있음" },
+        { "genreId": "indie_rock", "weight": 2, "reason": "분출형 배신감에 유리함" }
+      ],
+      "bpms": [
+        { "bpmId": "mid_91_105", "weight": 3, "reason": "차갑고 선명한 감정 전개에 적합" },
+        { "bpmId": "slow_mid_76_90", "weight": 3, "reason": "여운 있는 상처와 서늘함에 잘 맞음" },
+        { "bpmId": "fast_136_150", "weight": 1, "reason": "과열된 분노형 배신감에 활용 가능" }
+      ]
+    },
+    "hospitality": {
+      "genres": [
+        { "genreId": "folk_pop", "weight": 4, "reason": "따뜻하고 사람 냄새 나는 환대 무드에 적합" },
+        { "genreId": "pop", "weight": 3, "reason": "열린 분위기를 대중적으로 전달하기 좋음" },
+        { "genreId": "rnb", "weight": 2, "reason": "부드럽고 편안한 친밀감 표현 가능" },
+        { "genreId": "house", "weight": 2, "reason": "활기 있는 환영과 축제감에 적합" }
+      ],
+      "bpms": [
+        { "bpmId": "mid_91_105", "weight": 3, "reason": "편안하고 열린 분위기에 적합" },
+        { "bpmId": "mid_up_106_120", "weight": 3, "reason": "활기 있는 환대 무드를 만들기 좋음" },
+        { "bpmId": "slow_mid_76_90", "weight": 2, "reason": "차분하고 포근한 환영감에 유효함" }
+      ]
+    },
+    "alienation": {
+      "genres": [
+        { "genreId": "ambient", "weight": 4, "reason": "공간적 거리감과 공허감을 크게 만듦" },
+        { "genreId": "trip_hop", "weight": 4, "reason": "도시적 소외감과 서늘함에 적합" },
+        { "genreId": "alt_pop", "weight": 3, "reason": "개인적 고립감 표현에 유리함" },
+        { "genreId": "techno", "weight": 2, "reason": "기계적 반복 속 소외를 강조할 수 있음" }
+      ],
+      "bpms": [
+        { "bpmId": "slow_60_75", "weight": 3, "reason": "무게감 있는 고립감 표현에 적합" },
+        { "bpmId": "slow_mid_76_90", "weight": 4, "reason": "도시적 거리감과 잔여 감정에 잘 맞음" },
+        { "bpmId": "mid_91_105", "weight": 2, "reason": "현대적 소외 팝으로 풀어낼 수 있음" }
+      ]
+    },
+    "community": {
+      "genres": [
+        { "genreId": "indie_rock", "weight": 4, "reason": "함께 부르는 감정과 공동 에너지에 적합" },
+        { "genreId": "pop", "weight": 4, "reason": "모두가 공유하기 쉬운 열린 정서를 줌" },
+        { "genreId": "house", "weight": 3, "reason": "축제적 공동체 감각을 만들기 좋음" },
+        { "genreId": "folk_pop", "weight": 2, "reason": "소박하고 유대감 있는 공동체에 어울림" }
+      ],
+      "bpms": [
+        { "bpmId": "mid_up_106_120", "weight": 4, "reason": "함께 움직이는 공동의 에너지에 적합" },
+        { "bpmId": "up_121_135", "weight": 3, "reason": "큰 축제감과 고양감을 만들기 좋음" },
+        { "bpmId": "mid_91_105", "weight": 2, "reason": "편안한 연대감에도 유효함" }
+      ]
+    },
+    "solitude": {
+      "genres": [
+        { "genreId": "ambient", "weight": 4, "reason": "고요한 혼자만의 공기를 만들기 좋음" },
+        { "genreId": "ballad", "weight": 3, "reason": "내면 독백과 외로움을 직접 전달함" },
+        { "genreId": "dream_pop", "weight": 3, "reason": "부유하는 고독감을 표현하기 쉬움" },
+        { "genreId": "folk_pop", "weight": 2, "reason": "담백한 혼자됨의 정서에 어울림" }
+      ],
+      "bpms": [
+        { "bpmId": "slow_60_75", "weight": 4, "reason": "깊은 고독과 정적에 적합" },
+        { "bpmId": "slow_mid_76_90", "weight": 4, "reason": "잔잔한 혼자됨과 회상성에 잘 맞음" }
+      ]
+    },
+    "spring_life": {
+      "genres": [
+        { "genreId": "pop", "weight": 4, "reason": "밝고 생기 있는 새 출발 이미지에 적합" },
+        { "genreId": "indie_rock", "weight": 3, "reason": "생동감과 청춘성을 잘 살림" },
+        { "genreId": "house", "weight": 3, "reason": "활짝 피어나는 에너지에 어울림" },
+        { "genreId": "folk_pop", "weight": 2, "reason": "자연적이고 포근한 생명감 표현 가능" }
+      ],
+      "bpms": [
+        { "bpmId": "mid_up_106_120", "weight": 4, "reason": "움직이는 생명력과 따뜻한 에너지에 적합" },
+        { "bpmId": "up_121_135", "weight": 3, "reason": "더 활짝 열린 봄의 고양감에 유효함" }
+      ]
+    },
+    "autumn_death": {
+      "genres": [
+        { "genreId": "ballad", "weight": 4, "reason": "낙엽처럼 가라앉는 감정선에 적합" },
+        { "genreId": "ambient", "weight": 4, "reason": "정지감과 사라짐의 공기를 만들기 좋음" },
+        { "genreId": "cinematic_pop", "weight": 3, "reason": "계절적 죽음과 서사적 장면감에 유리함" },
+        { "genreId": "dream_pop", "weight": 2, "reason": "퇴색된 아름다움을 표현하기 좋음" }
+      ],
+      "bpms": [
+        { "bpmId": "slow_60_75", "weight": 4, "reason": "무게감과 침잠에 적합" },
+        { "bpmId": "slow_mid_76_90", "weight": 4, "reason": "서늘한 계절감과 여운을 만들기 좋음" }
+      ]
+    },
+    "day_light": {
+      "genres": [
+        { "genreId": "pop", "weight": 4, "reason": "선명하고 개방적인 낮의 무드에 적합" },
+        { "genreId": "house", "weight": 3, "reason": "빛과 활기의 에너지를 쉽게 살릴 수 있음" },
+        { "genreId": "indie_rock", "weight": 3, "reason": "생생하고 현실적인 낮의 질감에 어울림" },
+        { "genreId": "folk_pop", "weight": 2, "reason": "따뜻하고 자연스러운 일상 빛에 적합" }
+      ],
+      "bpms": [
+        { "bpmId": "mid_up_106_120", "weight": 4, "reason": "밝고 자연스러운 전진감에 적합" },
+        { "bpmId": "up_121_135", "weight": 3, "reason": "강한 햇빛 같은 개방감을 만들 수 있음" },
+        { "bpmId": "mid_91_105", "weight": 2, "reason": "차분한 낮의 평온함에도 유효함" }
+      ]
+    },
+    "night_darkness": {
+      "genres": [
+        { "genreId": "dream_pop", "weight": 4, "reason": "밤의 몽환성과 잔향을 잘 담아냄" },
+        { "genreId": "trip_hop", "weight": 4, "reason": "도시적 밤, 고독, 불안에 잘 어울림" },
+        { "genreId": "ambient", "weight": 3, "reason": "어둠의 정적과 공기감을 키워줌" },
+        { "genreId": "rnb", "weight": 2, "reason": "은밀하고 친밀한 야간 무드를 표현 가능" }
+      ],
+      "bpms": [
+        { "bpmId": "slow_mid_76_90", "weight": 5, "reason": "밤 특유의 느린 그루브에 적합" },
+        { "bpmId": "mid_91_105", "weight": 3, "reason": "도시적 야간 팝/R&B로 확장 가능" }
+      ]
+    },
+    "journey": {
+      "genres": [
+        { "genreId": "indie_rock", "weight": 4, "reason": "이동과 전진감, 거리감을 표현하기 좋음" },
+        { "genreId": "cinematic_pop", "weight": 4, "reason": "풍경이 바뀌는 장면감에 잘 맞음" },
+        { "genreId": "house", "weight": 2, "reason": "리듬감 있는 이동과 설렘을 만들 수 있음" },
+        { "genreId": "pop", "weight": 2, "reason": "보편적인 여행 감정을 담기 쉬움" }
+      ],
+      "bpms": [
+        { "bpmId": "mid_up_106_120", "weight": 4, "reason": "길 위의 추진감과 리듬감에 적합" },
+        { "bpmId": "up_121_135", "weight": 3, "reason": "더 역동적인 이동 에너지에 유효함" },
+        { "bpmId": "mid_91_105", "weight": 2, "reason": "차분한 여정이나 회고형 여행에도 적합" }
+      ]
+    },
+    "settlement": {
+      "genres": [
+        { "genreId": "folk_pop", "weight": 4, "reason": "안착과 일상성, 사람 냄새 나는 정착감에 적합" },
+        { "genreId": "ballad", "weight": 3, "reason": "정리와 받아들임의 감정에 잘 맞음" },
+        { "genreId": "ambient", "weight": 2, "reason": "멈춤과 안정의 공기를 만들 수 있음" },
+        { "genreId": "rnb", "weight": 2, "reason": "부드럽고 따뜻한 정착감에 유효함" }
+      ],
+      "bpms": [
+        { "bpmId": "slow_mid_76_90", "weight": 4, "reason": "안정되고 차분한 정착감에 적합" },
+        { "bpmId": "mid_91_105", "weight": 2, "reason": "편안한 일상 리듬으로 확장 가능" },
+        { "bpmId": "slow_60_75", "weight": 2, "reason": "아주 조용한 안착과 휴식감에 좋음" }
+      ]
+    },
+    "confidence": {
+      "genres": [
+        { "genreId": "pop", "weight": 4, "reason": "선명하고 대중적인 자신감을 전달하기 좋음" },
+        { "genreId": "house", "weight": 4, "reason": "몸이 펴지는 해방감과 당당함에 적합" },
+        { "genreId": "hip_hop", "weight": 3, "reason": "선언적이고 직진적인 자기표현에 유리함" },
+        { "genreId": "indie_rock", "weight": 2, "reason": "밴드 에너지로 추진감 있는 자신감을 만듦" }
+      ],
+      "bpms": [
+        { "bpmId": "mid_up_106_120", "weight": 4, "reason": "당당하게 앞으로 나가는 무드에 적합" },
+        { "bpmId": "up_121_135", "weight": 4, "reason": "강한 고양감과 자기 확신을 만듦" },
+        { "bpmId": "mid_91_105", "weight": 2, "reason": "차분하지만 단단한 자신감에도 유효함" }
+      ]
+    },
+    "freedom": {
+      "genres": [
+        { "genreId": "indie_rock", "weight": 4, "reason": "질주감과 해방감을 직선적으로 살림" },
+        { "genreId": "house", "weight": 4, "reason": "몸이 풀리는 자유 감각을 만들기 좋음" },
+        { "genreId": "drum_and_bass", "weight": 2, "reason": "폭발적 탈주감이 필요할 때 유효함" },
+        { "genreId": "pop", "weight": 2, "reason": "보편적이고 밝은 자유 서사에 적합" }
+      ],
+      "bpms": [
+        { "bpmId": "up_121_135", "weight": 5, "reason": "고양감과 개방감을 극대화함" },
+        { "bpmId": "mid_up_106_120", "weight": 4, "reason": "자연스러운 전진감과 활기를 만듦" },
+        { "bpmId": "very_fast_160_180", "weight": 1, "reason": "극단적인 해방감 표현에 활용 가능" }
+      ]
+    },
+    "confinement": {
+      "genres": [
+        { "genreId": "techno", "weight": 3, "reason": "반복 구조가 속박감을 강조함" },
+        { "genreId": "trip_hop", "weight": 3, "reason": "질식감 있는 도시적 무드에 적합" },
+        { "genreId": "ambient", "weight": 3, "reason": "움직이지 못하는 정지감을 키움" },
+        { "genreId": "alt_pop", "weight": 2, "reason": "현대적 억압감과 개인 서사에 어울림" }
+      ],
+      "bpms": [
+        { "bpmId": "slow_mid_76_90", "weight": 3, "reason": "답답한 맥박감과 억눌림에 적합" },
+        { "bpmId": "mid_91_105", "weight": 3, "reason": "긴장된 지속감과 억압된 리듬을 줌" },
+        { "bpmId": "fast_136_150", "weight": 1, "reason": "강박적으로 조여오는 에너지에 유효함" }
+      ]
+    },
+    "truth": {
+      "genres": [
+        { "genreId": "folk_pop", "weight": 4, "reason": "솔직하고 인간적인 진실성 표현에 적합" },
+        { "genreId": "ballad", "weight": 3, "reason": "정면으로 말하는 감정 전달에 강함" },
+        { "genreId": "indie_rock", "weight": 2, "reason": "단단하고 현실적인 진실 선언에 어울림" },
+        { "genreId": "pop", "weight": 2, "reason": "보편적 메시지 전달에 유리함" }
+      ],
+      "bpms": [
+        { "bpmId": "mid_91_105", "weight": 3, "reason": "또렷하지만 과장되지 않은 템포감" },
+        { "bpmId": "slow_mid_76_90", "weight": 3, "reason": "차분하고 진중한 진실 고백에 적합" },
+        { "bpmId": "mid_up_106_120", "weight": 1, "reason": "확신 있는 선언형 전개에도 유효함" }
+      ]
+    },
+    "deception": {
+      "genres": [
+        { "genreId": "trip_hop", "weight": 4, "reason": "서늘하고 의심스러운 분위기에 적합" },
+        { "genreId": "alt_pop", "weight": 3, "reason": "현대적 불신과 혼란을 표현하기 좋음" },
+        { "genreId": "techno", "weight": 2, "reason": "기계적 반복과 불편함을 강조할 수 있음" },
+        { "genreId": "rnb", "weight": 2, "reason": "은밀하고 감정적으로 꼬인 서사에 유효함" }
+      ],
+      "bpms": [
+        { "bpmId": "slow_mid_76_90", "weight": 3, "reason": "의심과 서늘함이 오래 남는 전개에 적합" },
+        { "bpmId": "mid_91_105", "weight": 3, "reason": "불신과 긴장감이 분명한 현대 팝 무드에 좋음" },
+        { "bpmId": "fast_136_150", "weight": 1, "reason": "강박적 추적감이나 불안 증폭에 활용 가능" }
+      ]
+    },
+    "celebration": {
+      "genres": [
+        { "genreId": "pop", "weight": 5, "reason": "축하와 밝음을 가장 직관적으로 전달함" },
+        { "genreId": "house", "weight": 4, "reason": "축제감과 신체적 에너지를 살리기 좋음" },
+        { "genreId": "hip_hop", "weight": 2, "reason": "자신감 있는 축하 서사에 어울림" },
+        { "genreId": "indie_rock", "weight": 2, "reason": "밴드형 환호와 라이브감을 줄 수 있음" }
+      ],
+      "bpms": [
+        { "bpmId": "up_121_135", "weight": 5, "reason": "축제의 고양감을 가장 크게 만듦" },
+        { "bpmId": "mid_up_106_120", "weight": 4, "reason": "밝고 힘 있는 기쁨에 적합" }
+      ]
+    },
+    "mourning": {
+      "genres": [
+        { "genreId": "ballad", "weight": 5, "reason": "애도와 추모의 감정을 가장 직접적으로 전달함" },
+        { "genreId": "ambient", "weight": 4, "reason": "고요한 장례성과 정적을 크게 살릴 수 있음" },
+        { "genreId": "cinematic_pop", "weight": 3, "reason": "장면감 있는 애도와 헌정에 적합" },
+        { "genreId": "rnb", "weight": 2, "reason": "부드럽고 개인적인 추모에도 어울림" }
+      ],
+      "bpms": [
+        { "bpmId": "slow_60_75", "weight": 5, "reason": "무게감과 추모의 침잠을 가장 잘 만듦" },
+        { "bpmId": "slow_mid_76_90", "weight": 3, "reason": "잔잔한 회고형 애도에도 적합" }
+      ]
+    },
+    "victory": {
+      "genres": [
+        { "genreId": "house", "weight": 4, "reason": "큰 고양감과 승리의 해방감에 적합" },
+        { "genreId": "pop", "weight": 4, "reason": "선명하고 대중적인 승리 무드를 전달함" },
+        { "genreId": "indie_rock", "weight": 3, "reason": "도달과 성취의 밴드 에너지를 만듦" },
+        { "genreId": "drum_and_bass", "weight": 1, "reason": "극단적 쾌감과 질주형 승리에 유효함" }
+      ],
+      "bpms": [
+        { "bpmId": "up_121_135", "weight": 5, "reason": "고양감과 환호를 크게 끌어올림" },
+        { "bpmId": "mid_up_106_120", "weight": 3, "reason": "단단하게 밀어붙이는 성취감에 적합" },
+        { "bpmId": "very_fast_160_180", "weight": 1, "reason": "폭발적 승리감 표현에 활용 가능" }
+      ]
+    },
+    "defeat": {
+      "genres": [
+        { "genreId": "ballad", "weight": 4, "reason": "패배 이후의 낙하감을 직접적으로 전달함" },
+        { "genreId": "ambient", "weight": 4, "reason": "허무와 공백을 크게 살리기 좋음" },
+        { "genreId": "trip_hop", "weight": 2, "reason": "도시적 패배감과 자조에 적합" },
+        { "genreId": "cinematic_pop", "weight": 2, "reason": "무너진 장면과 서사를 극적으로 표현 가능" }
+      ],
+      "bpms": [
+        { "bpmId": "slow_60_75", "weight": 4, "reason": "무력감과 허무를 깊게 만들 수 있음" },
+        { "bpmId": "slow_mid_76_90", "weight": 3, "reason": "체념과 잔상 중심 전개에 적합" }
+      ]
+    },
+    "challenge": {
+      "genres": [
+        { "genreId": "indie_rock", "weight": 4, "reason": "밀고 나가는 도전성과 에너지를 잘 살림" },
+        { "genreId": "techno", "weight": 3, "reason": "끊임없이 밀어붙이는 압박형 에너지에 적합" },
+        { "genreId": "house", "weight": 3, "reason": "상승감 있는 도전 서사에 유효함" },
+        { "genreId": "drum_and_bass", "weight": 1, "reason": "극단적 속도감의 도전 무드에 활용 가능" }
+      ],
+      "bpms": [
+        { "bpmId": "mid_up_106_120", "weight": 4, "reason": "도전의 전진감과 호흡을 안정적으로 살림" },
+        { "bpmId": "up_121_135", "weight": 4, "reason": "더 강한 상승과 추진력에 적합" },
+        { "bpmId": "fast_136_150", "weight": 2, "reason": "과열된 승부감과 압박을 표현할 수 있음" }
+      ]
+    },
+    "giving_up": {
+      "genres": [
+        { "genreId": "ambient", "weight": 4, "reason": "힘이 빠지는 정지감과 포기감을 살리기 좋음" },
+        { "genreId": "ballad", "weight": 4, "reason": "체념과 고백의 감정을 전달하기 좋음" },
+        { "genreId": "trip_hop", "weight": 2, "reason": "도시적 무기력과 자조에 적합" },
+        { "genreId": "cinematic_pop", "weight": 2, "reason": "무너지는 장면감을 만들기 좋음" }
+      ],
+      "bpms": [
+        { "bpmId": "slow_60_75", "weight": 4, "reason": "무거운 체념과 이완에 적합" },
+        { "bpmId": "slow_mid_76_90", "weight": 3, "reason": "조용히 내려놓는 포기감에 잘 맞음" }
+      ]
+    }
   },
   "themes": [
-    {
-      "id": "love",
-      "label": "사랑",
-      "labelEn": "Love",
-      "recommendations": { "genres": [], "bpms": [] },
-      "keywordPools": { "감정": [], "이미지": [], "행동": [], "시공간": [], "영어 키워드": [] }
+      {
+    "id": "love",
+    "label": "사랑",
+    "labelEn": "Love",
+    "recommendations": {
+      "genres": [
+        { "genreId": "rnb", "weight": 5, "reason": "친밀한 감정선과 보컬 표현에 잘 맞음" },
+        { "genreId": "dream_pop", "weight": 4, "reason": "설렘과 몽환적 정서를 살리기 좋음" },
+        { "genreId": "ballad", "weight": 4, "reason": "직접적인 감정 전달에 강함" },
+        { "genreId": "alt_pop", "weight": 3, "reason": "현대적인 사랑 서사로 확장 가능" }
+      ],
+      "bpms": [
+        { "bpmId": "slow_mid_76_90", "weight": 5, "reason": "잔잔하고 감정적인 흐름에 적합" },
+        { "bpmId": "mid_91_105", "weight": 4, "reason": "대중적이고 자연스러운 그루브를 만들기 좋음" }
+      ]
     },
-    {
-      "id": "breakup",
-      "label": "이별",
-      "labelEn": "Breakup",
-      "recommendations": { "genres": [], "bpms": [] },
-      "keywordPools": { "감정": [], "이미지": [], "행동": [], "시공간": [], "영어 키워드": [] }
-    },
-    {
-      "id": "happiness",
-      "label": "행복",
-      "labelEn": "Happiness",
-      "recommendations": { "genres": [], "bpms": [] },
-      "keywordPools": { "감정": [], "이미지": [], "행동": [], "시공간": [], "영어 키워드": [] }
-    },
-    {
-      "id": "sadness",
-      "label": "슬픔",
-      "labelEn": "Sadness",
-      "recommendations": { "genres": [], "bpms": [] },
-      "keywordPools": { "감정": [], "이미지": [], "행동": [], "시공간": [], "영어 키워드": [] }
-    },
-    {
-      "id": "hope",
-      "label": "희망",
-      "labelEn": "Hope",
-      "recommendations": { "genres": [], "bpms": [] },
-      "keywordPools": { "감정": [], "이미지": [], "행동": [], "시공간": [], "영어 키워드": [] }
-    },
-    {
-      "id": "despair",
-      "label": "절망",
-      "labelEn": "Despair",
-      "recommendations": { "genres": [], "bpms": [] },
-      "keywordPools": { "감정": [], "이미지": [], "행동": [], "시공간": [], "영어 키워드": [] }
-    },
-    {
-      "id": "peace",
-      "label": "평화",
-      "labelEn": "Peace",
-      "recommendations": { "genres": [], "bpms": [] },
-      "keywordPools": { "감정": [], "이미지": [], "행동": [], "시공간": [], "영어 키워드": [] }
-    },
-    {
-      "id": "anger",
-      "label": "분노",
-      "labelEn": "Anger",
-      "recommendations": { "genres": [], "bpms": [] },
-      "keywordPools": { "감정": [], "이미지": [], "행동": [], "시공간": [], "영어 키워드": [] }
-    },
-    {
-      "id": "anxiety",
-      "label": "불안",
-      "labelEn": "Anxiety",
-      "recommendations": { "genres": [], "bpms": [] },
-      "keywordPools": { "감정": [], "이미지": [], "행동": [], "시공간": [], "영어 키워드": [] }
-    },
-    {
-      "id": "growth",
-      "label": "성장",
-      "labelEn": "Growth",
-      "recommendations": { "genres": [], "bpms": [] },
-      "keywordPools": { "감정": [], "이미지": [], "행동": [], "시공간": [], "영어 키워드": [] }
-    },
-    {
-  "id": "nostalgia",
-  "label": "회상",
-  "labelEn": "Nostalgia",
-  "recommendations": {
-    "genres": [],
-    "bpms": []
+    "keywordPools": { "감정": [], "이미지": [], "행동": [], "시공간": [], "영어 키워드": [] }
   },
+  {
+    "id": "breakup",
+    "label": "이별",
+    "labelEn": "Breakup",
+    "recommendations": {
+      "genres": [
+        { "genreId": "ballad", "weight": 5, "reason": "상실과 후회를 직접적으로 전달하기 좋음" },
+        { "genreId": "rnb", "weight": 4, "reason": "잔향과 여백이 남는 이별 무드에 적합" },
+        { "genreId": "trip_hop", "weight": 3, "reason": "도시적이고 어두운 이별 감정에 어울림" },
+        { "genreId": "cinematic_pop", "weight": 3, "reason": "드라마틱한 전개에 유리함" }
+      ],
+      "bpms": [
+        { "bpmId": "slow_60_75", "weight": 5, "reason": "슬픔과 공백을 크게 확보할 수 있음" },
+        { "bpmId": "slow_mid_76_90", "weight": 4, "reason": "너무 처지지 않으면서 감정선을 유지함" }
+      ]
+    },
+    "keywordPools": { "감정": [], "이미지": [], "행동": [], "시공간": [], "영어 키워드": [] }
+  },
+  {
+    "id": "happiness",
+    "label": "행복",
+    "labelEn": "Happiness",
+    "recommendations": {
+      "genres": [
+        { "genreId": "pop", "weight": 5, "reason": "가장 직관적으로 밝음과 대중성을 전달함" },
+        { "genreId": "house", "weight": 4, "reason": "몸이 움직이는 기쁨과 축제감에 적합" },
+        { "genreId": "indie_rock", "weight": 3, "reason": "활기와 밴드 에너지를 살리기 좋음" },
+        { "genreId": "alt_pop", "weight": 3, "reason": "조금 더 세련된 밝음을 만들기 좋음" }
+      ],
+      "bpms": [
+        { "bpmId": "mid_up_106_120", "weight": 5, "reason": "생기 있고 들뜬 에너지를 표현하기 좋음" },
+        { "bpmId": "up_121_135", "weight": 4, "reason": "축제감과 고양감을 강하게 만들 수 있음" },
+        { "bpmId": "mid_91_105", "weight": 2, "reason": "잔잔한 행복이나 미디엄 팝에도 적합" }
+      ]
+    },
+    "keywordPools": { "감정": [], "이미지": [], "행동": [], "시공간": [], "영어 키워드": [] }
+  },
+  {
+    "id": "sadness",
+    "label": "슬픔",
+    "labelEn": "Sadness",
+    "recommendations": {
+      "genres": [
+        { "genreId": "ballad", "weight": 5, "reason": "슬픔의 정서를 가장 직접적으로 담기 좋음" },
+        { "genreId": "ambient", "weight": 4, "reason": "정지감과 공허감을 크게 살릴 수 있음" },
+        { "genreId": "rnb", "weight": 3, "reason": "조용하고 깊은 슬픔을 친밀하게 표현 가능" },
+        { "genreId": "cinematic_pop", "weight": 3, "reason": "장면감 있는 슬픔과 감정 고조에 적합" }
+      ],
+      "bpms": [
+        { "bpmId": "slow_60_75", "weight": 5, "reason": "애도와 무게감, 침잠감을 크게 만듦" },
+        { "bpmId": "slow_mid_76_90", "weight": 4, "reason": "잔잔한 슬픔과 회상성에 잘 맞음" }
+      ]
+    },
+    "keywordPools": { "감정": [], "이미지": [], "행동": [], "시공간": [], "영어 키워드": [] }
+  },
+  {
+    "id": "hope",
+    "label": "희망",
+    "labelEn": "Hope",
+    "recommendations": {
+      "genres": [
+        { "genreId": "indie_rock", "weight": 4, "reason": "전진감과 성장 서사를 함께 만들기 좋음" },
+        { "genreId": "alt_pop", "weight": 4, "reason": "현대적이고 가벼운 상승감 표현에 적합" },
+        { "genreId": "cinematic_pop", "weight": 3, "reason": "확장감 있는 희망 서사에 잘 맞음" },
+        { "genreId": "pop", "weight": 3, "reason": "보편적인 상승 정서 전달에 강함" }
+      ],
+      "bpms": [
+        { "bpmId": "mid_up_106_120", "weight": 5, "reason": "전진감과 활기를 살리기 좋음" },
+        { "bpmId": "mid_91_105", "weight": 4, "reason": "차분하게 올라가는 서사에 적합" },
+        { "bpmId": "up_121_135", "weight": 2, "reason": "더 확실한 고양감이 필요할 때 좋음" }
+      ]
+    },
+    "keywordPools": { "감정": [], "이미지": [], "행동": [], "시공간": [], "영어 키워드": [] }
+  },
+  {
+    "id": "despair",
+    "label": "절망",
+    "labelEn": "Despair",
+    "recommendations": {
+      "genres": [
+        { "genreId": "ambient", "weight": 5, "reason": "무너짐과 정적을 크게 살릴 수 있음" },
+        { "genreId": "trip_hop", "weight": 4, "reason": "어두운 도시적 절망에 적합함" },
+        { "genreId": "cinematic_pop", "weight": 3, "reason": "극적인 붕괴감에 유리함" },
+        { "genreId": "alt_pop", "weight": 2, "reason": "현대적 우울과 내면 독백에 맞음" }
+      ],
+      "bpms": [
+        { "bpmId": "slow_60_75", "weight": 5, "reason": "무게감과 정지감을 강조함" },
+        { "bpmId": "slow_mid_76_90", "weight": 3, "reason": "침잠하되 약한 맥박감을 남길 수 있음" }
+      ]
+    },
+    "keywordPools": { "감정": [], "이미지": [], "행동": [], "시공간": [], "영어 키워드": [] }
+  },
+  {
+    "id": "peace",
+    "label": "평화",
+    "labelEn": "Peace",
+    "recommendations": {
+      "genres": [
+        { "genreId": "ambient", "weight": 4, "reason": "정적과 공간감을 부드럽게 만들기 좋음" },
+        { "genreId": "folk_pop", "weight": 4, "reason": "인간적인 온기와 안정감이 살아남" },
+        { "genreId": "dream_pop", "weight": 3, "reason": "부유감 있는 평온을 만들기 좋음" },
+        { "genreId": "ballad", "weight": 2, "reason": "조용한 위로와 안정을 전달함" }
+      ],
+      "bpms": [
+        { "bpmId": "slow_60_75", "weight": 4, "reason": "호흡이 느린 평온함에 적합" },
+        { "bpmId": "slow_mid_76_90", "weight": 4, "reason": "잔잔한 흐름과 따뜻함을 유지함" }
+      ]
+    },
+    "keywordPools": { "감정": [], "이미지": [], "행동": [], "시공간": [], "영어 키워드": [] }
+  },
+  {
+    "id": "anger",
+    "label": "분노",
+    "labelEn": "Anger",
+    "recommendations": {
+      "genres": [
+        { "genreId": "techno", "weight": 4, "reason": "압박감과 반복 에너지가 분노와 잘 맞음" },
+        { "genreId": "indie_rock", "weight": 4, "reason": "직선적인 폭발감 표현에 유리함" },
+        { "genreId": "drum_and_bass", "weight": 3, "reason": "질주감 있는 과격한 감정 표현 가능" },
+        { "genreId": "hip_hop", "weight": 3, "reason": "선명한 어조와 공격적 리듬감에 적합" }
+      ],
+      "bpms": [
+        { "bpmId": "fast_136_150", "weight": 4, "reason": "과열된 긴장과 에너지를 만들기 좋음" },
+        { "bpmId": "up_121_135", "weight": 3, "reason": "폭발 직전의 추진감을 표현함" },
+        { "bpmId": "very_fast_160_180", "weight": 2, "reason": "통제 불가능한 분출감에 적합" }
+      ]
+    },
+    "keywordPools": { "감정": [], "이미지": [], "행동": [], "시공간": [], "영어 키워드": [] }
+  },
+  {
+    "id": "anxiety",
+    "label": "불안",
+    "labelEn": "Anxiety",
+    "recommendations": {
+      "genres": [
+        { "genreId": "trip_hop", "weight": 4, "reason": "도시적 긴장과 불안을 잘 담아냄" },
+        { "genreId": "alt_pop", "weight": 4, "reason": "현대적이고 개인적인 불안 서사에 적합" },
+        { "genreId": "ambient", "weight": 3, "reason": "떠도는 감정과 숨막힘을 살리기 좋음" },
+        { "genreId": "techno", "weight": 2, "reason": "강박적 반복과 압박감을 표현할 수 있음" }
+      ],
+      "bpms": [
+        { "bpmId": "mid_91_105", "weight": 4, "reason": "불안한 맥박감과 현대적 팝 감성에 적합" },
+        { "bpmId": "slow_mid_76_90", "weight": 3, "reason": "내면 독백 같은 긴장감에 잘 맞음" },
+        { "bpmId": "fast_136_150", "weight": 2, "reason": "과열된 초조함을 강조할 때 유효함" }
+      ]
+    },
+    "keywordPools": { "감정": [], "이미지": [], "행동": [], "시공간": [], "영어 키워드": [] }
+  },
+  {
+    "id": "growth",
+    "label": "성장",
+    "labelEn": "Growth",
+    "recommendations": {
+      "genres": [
+        { "genreId": "indie_rock", "weight": 5, "reason": "청춘성과 전진감을 함께 표현하기 좋음" },
+        { "genreId": "alt_pop", "weight": 4, "reason": "현대적인 성장 서사에 잘 어울림" },
+        { "genreId": "folk_pop", "weight": 3, "reason": "인간적인 온기와 성찰을 담기 좋음" },
+        { "genreId": "pop", "weight": 2, "reason": "보다 대중적인 상승 무드로 풀어낼 수 있음" }
+      ],
+      "bpms": [
+        { "bpmId": "mid_up_106_120", "weight": 5, "reason": "전진감과 활력을 가장 잘 구현함" },
+        { "bpmId": "mid_91_105", "weight": 3, "reason": "차분한 성장 서사에도 적합" }
+      ]
+    },
+    "keywordPools": { "감정": [], "이미지": [], "행동": [], "시공간": [], "영어 키워드": [] }
+  },
+  {
+    "id": "nostalgia",
+    "label": "회상",
+    "labelEn": "Nostalgia",
+    "recommendations": {
+      "genres": [
+        { "genreId": "dream_pop", "weight": 5, "reason": "희미한 기억과 잔향 표현에 적합" },
+        { "genreId": "folk_pop", "weight": 4, "reason": "가까운 기억과 인간적인 온기 표현에 적합" },
+        { "genreId": "ballad", "weight": 3, "reason": "직접적인 회상 감정 전달에 유리" }
+      ],
+      "bpms": [
+        { "bpmId": "slow_mid_76_90", "weight": 5, "reason": "회상 특유의 느린 흐름에 잘 맞음" },
+        { "bpmId": "slow_60_75", "weight": 2, "reason": "더 깊고 고요한 향수에 적합" }
+      ]
+    },
   "keywordPools": {
     "감정": [
     "그리움",
@@ -1030,194 +1733,506 @@
     ]
   }
 },
-    {
-      "id": "meeting",
-      "label": "만남",
-      "labelEn": "Meeting",
-      "recommendations": { "genres": [], "bpms": [] },
-      "keywordPools": { "감정": [], "이미지": [], "행동": [], "시공간": [], "영어 키워드": [] }
+{
+    "id": "meeting",
+    "label": "만남",
+    "labelEn": "Meeting",
+    "recommendations": {
+      "genres": [
+        { "genreId": "pop", "weight": 4, "reason": "만남의 밝음과 대중적 설렘에 적합함" },
+        { "genreId": "rnb", "weight": 4, "reason": "친밀한 두 사람의 거리감을 표현하기 좋음" },
+        { "genreId": "indie_rock", "weight": 3, "reason": "생생한 현장감과 활기를 더해줌" },
+        { "genreId": "folk_pop", "weight": 2, "reason": "소박하고 따뜻한 첫 만남 무드에 어울림" }
+      ],
+      "bpms": [
+        { "bpmId": "mid_91_105", "weight": 4, "reason": "자연스럽고 두근거리는 만남 무드에 적합" },
+        { "bpmId": "mid_up_106_120", "weight": 3, "reason": "활기 있는 첫 만남이나 재회에 잘 맞음" }
+      ]
     },
-    {
-      "id": "parting",
-      "label": "헤어짐",
-      "labelEn": "Parting",
-      "recommendations": { "genres": [], "bpms": [] },
-      "keywordPools": { "감정": [], "이미지": [], "행동": [], "시공간": [], "영어 키워드": [] }
+    "keywordPools": { "감정": [], "이미지": [], "행동": [], "시공간": [], "영어 키워드": [] }
+  },
+  {
+    "id": "parting",
+    "label": "헤어짐",
+    "labelEn": "Parting",
+    "recommendations": {
+      "genres": [
+        { "genreId": "ballad", "weight": 5, "reason": "마지막 인사와 상실을 직접적으로 담기 좋음" },
+        { "genreId": "cinematic_pop", "weight": 4, "reason": "장면처럼 남는 이별이나 떠남에 적합" },
+        { "genreId": "rnb", "weight": 3, "reason": "여운이 남는 작별 무드에 유리함" },
+        { "genreId": "ambient", "weight": 2, "reason": "멈춘 시간 같은 정서를 살릴 수 있음" }
+      ],
+      "bpms": [
+        { "bpmId": "slow_60_75", "weight": 4, "reason": "무게감 있는 작별에 잘 어울림" },
+        { "bpmId": "slow_mid_76_90", "weight": 4, "reason": "잔잔한 이별과 긴 여운을 만들기 좋음" }
+      ]
     },
-    {
-      "id": "beginning",
-      "label": "시작",
-      "labelEn": "Beginning",
-      "recommendations": { "genres": [], "bpms": [] },
-      "keywordPools": { "감정": [], "이미지": [], "행동": [], "시공간": [], "영어 키워드": [] }
+    "keywordPools": { "감정": [], "이미지": [], "행동": [], "시공간": [], "영어 키워드": [] }
+  },
+  {
+    "id": "beginning",
+    "label": "시작",
+    "labelEn": "Beginning",
+    "recommendations": {
+      "genres": [
+        { "genreId": "pop", "weight": 4, "reason": "새 출발의 선명함과 보편성을 전달하기 좋음" },
+        { "genreId": "indie_rock", "weight": 4, "reason": "청춘적인 스타트 무드에 잘 맞음" },
+        { "genreId": "alt_pop", "weight": 3, "reason": "현대적인 첫 장면 연출에 적합함" },
+        { "genreId": "house", "weight": 2, "reason": "가볍게 도약하는 시작감 표현 가능" }
+      ],
+      "bpms": [
+        { "bpmId": "mid_up_106_120", "weight": 4, "reason": "움직이기 시작하는 에너지에 적합" },
+        { "bpmId": "up_121_135", "weight": 3, "reason": "더 확실한 출발감과 고양감을 만듦" },
+        { "bpmId": "mid_91_105", "weight": 2, "reason": "차분한 새 출발 서사에도 유효함" }
+      ]
     },
-    {
-      "id": "ending",
-      "label": "끝",
-      "labelEn": "Ending",
-      "recommendations": { "genres": [], "bpms": [] },
-      "keywordPools": { "감정": [], "이미지": [], "행동": [], "시공간": [], "영어 키워드": [] }
+    "keywordPools": { "감정": [], "이미지": [], "행동": [], "시공간": [], "영어 키워드": [] }
+  },
+  {
+    "id": "ending",
+    "label": "끝",
+    "labelEn": "Ending",
+    "recommendations": {
+      "genres": [
+        { "genreId": "ballad", "weight": 4, "reason": "끝맺음의 감정 전달이 직관적임" },
+        { "genreId": "cinematic_pop", "weight": 4, "reason": "마지막 장면 같은 서사 마감에 유리함" },
+        { "genreId": "ambient", "weight": 3, "reason": "사라짐과 정리의 공기를 만들기 좋음" },
+        { "genreId": "dream_pop", "weight": 2, "reason": "잔향처럼 흩어지는 엔딩에 적합" }
+      ],
+      "bpms": [
+        { "bpmId": "slow_60_75", "weight": 4, "reason": "무게 있는 마무리와 작별감에 적합" },
+        { "bpmId": "slow_mid_76_90", "weight": 4, "reason": "잔잔한 정리와 여운에 좋음" }
+      ]
     },
-    {
-      "id": "friendship",
-      "label": "우정",
-      "labelEn": "Friendship",
-      "recommendations": { "genres": [], "bpms": [] },
-      "keywordPools": { "감정": [], "이미지": [], "행동": [], "시공간": [], "영어 키워드": [] }
+    "keywordPools": { "감정": [], "이미지": [], "행동": [], "시공간": [], "영어 키워드": [] }
+  },
+  {
+    "id": "friendship",
+    "label": "우정",
+    "labelEn": "Friendship",
+    "recommendations": {
+      "genres": [
+        { "genreId": "indie_rock", "weight": 4, "reason": "우정의 활기와 생동감을 살리기 좋음" },
+        { "genreId": "pop", "weight": 4, "reason": "밝고 친근한 공동의 정서를 만들기 쉬움" },
+        { "genreId": "folk_pop", "weight": 3, "reason": "소박하고 따뜻한 관계성 표현에 적합" },
+        { "genreId": "alt_pop", "weight": 2, "reason": "조금 더 세련된 우정 서사로 풀 수 있음" }
+      ],
+      "bpms": [
+        { "bpmId": "mid_91_105", "weight": 3, "reason": "편안하고 친근한 템포감에 적합" },
+        { "bpmId": "mid_up_106_120", "weight": 4, "reason": "함께 움직이는 활기와 에너지를 줌" }
+      ]
     },
-    {
-      "id": "betrayal",
-      "label": "배신",
-      "labelEn": "Betrayal",
-      "recommendations": { "genres": [], "bpms": [] },
-      "keywordPools": { "감정": [], "이미지": [], "행동": [], "시공간": [], "영어 키워드": [] }
+    "keywordPools": { "감정": [], "이미지": [], "행동": [], "시공간": [], "영어 키워드": [] }
+  },
+  {
+    "id": "betrayal",
+    "label": "배신",
+    "labelEn": "Betrayal",
+    "recommendations": {
+      "genres": [
+        { "genreId": "trip_hop", "weight": 4, "reason": "서늘하고 불신 가득한 무드에 어울림" },
+        { "genreId": "alt_pop", "weight": 4, "reason": "현대적 배신감과 내면 독백을 담기 좋음" },
+        { "genreId": "techno", "weight": 2, "reason": "차갑고 강박적인 긴장감을 만들 수 있음" },
+        { "genreId": "indie_rock", "weight": 2, "reason": "분출형 배신감에 유리함" }
+      ],
+      "bpms": [
+        { "bpmId": "mid_91_105", "weight": 3, "reason": "차갑고 선명한 감정 전개에 적합" },
+        { "bpmId": "slow_mid_76_90", "weight": 3, "reason": "여운 있는 상처와 서늘함에 잘 맞음" },
+        { "bpmId": "fast_136_150", "weight": 1, "reason": "과열된 분노형 배신감에 활용 가능" }
+      ]
     },
-    {
-      "id": "hospitality",
-      "label": "환대",
-      "labelEn": "Hospitality",
-      "recommendations": { "genres": [], "bpms": [] },
-      "keywordPools": { "감정": [], "이미지": [], "행동": [], "시공간": [], "영어 키워드": [] }
+    "keywordPools": { "감정": [], "이미지": [], "행동": [], "시공간": [], "영어 키워드": [] }
+  },
+  {
+    "id": "hospitality",
+    "label": "환대",
+    "labelEn": "Hospitality",
+    "recommendations": {
+      "genres": [
+        { "genreId": "folk_pop", "weight": 4, "reason": "따뜻하고 사람 냄새 나는 환대 무드에 적합" },
+        { "genreId": "pop", "weight": 3, "reason": "열린 분위기를 대중적으로 전달하기 좋음" },
+        { "genreId": "rnb", "weight": 2, "reason": "부드럽고 편안한 친밀감 표현 가능" },
+        { "genreId": "house", "weight": 2, "reason": "활기 있는 환영과 축제감에 적합" }
+      ],
+      "bpms": [
+        { "bpmId": "mid_91_105", "weight": 3, "reason": "편안하고 열린 분위기에 적합" },
+        { "bpmId": "mid_up_106_120", "weight": 3, "reason": "활기 있는 환대 무드를 만들기 좋음" },
+        { "bpmId": "slow_mid_76_90", "weight": 2, "reason": "차분하고 포근한 환영감에 유효함" }
+      ]
     },
-    {
-      "id": "alienation",
-      "label": "소외",
-      "labelEn": "Alienation",
-      "recommendations": { "genres": [], "bpms": [] },
-      "keywordPools": { "감정": [], "이미지": [], "행동": [], "시공간": [], "영어 키워드": [] }
+    "keywordPools": { "감정": [], "이미지": [], "행동": [], "시공간": [], "영어 키워드": [] }
+  },
+  {
+    "id": "alienation",
+    "label": "소외",
+    "labelEn": "Alienation",
+    "recommendations": {
+      "genres": [
+        { "genreId": "ambient", "weight": 4, "reason": "공간적 거리감과 공허감을 크게 만듦" },
+        { "genreId": "trip_hop", "weight": 4, "reason": "도시적 소외감과 서늘함에 적합" },
+        { "genreId": "alt_pop", "weight": 3, "reason": "개인적 고립감 표현에 유리함" },
+        { "genreId": "techno", "weight": 2, "reason": "기계적 반복 속 소외를 강조할 수 있음" }
+      ],
+      "bpms": [
+        { "bpmId": "slow_60_75", "weight": 3, "reason": "무게감 있는 고립감 표현에 적합" },
+        { "bpmId": "slow_mid_76_90", "weight": 4, "reason": "도시적 거리감과 잔여 감정에 잘 맞음" },
+        { "bpmId": "mid_91_105", "weight": 2, "reason": "현대적 소외 팝으로 풀어낼 수 있음" }
+      ]
     },
-    {
-      "id": "community",
-      "label": "공동체",
-      "labelEn": "Community",
-      "recommendations": { "genres": [], "bpms": [] },
-      "keywordPools": { "감정": [], "이미지": [], "행동": [], "시공간": [], "영어 키워드": [] }
+    "keywordPools": { "감정": [], "이미지": [], "행동": [], "시공간": [], "영어 키워드": [] }
+  },
+  {
+    "id": "community",
+    "label": "공동체",
+    "labelEn": "Community",
+    "recommendations": {
+      "genres": [
+        { "genreId": "indie_rock", "weight": 4, "reason": "함께 부르는 감정과 공동 에너지에 적합" },
+        { "genreId": "pop", "weight": 4, "reason": "모두가 공유하기 쉬운 열린 정서를 줌" },
+        { "genreId": "house", "weight": 3, "reason": "축제적 공동체 감각을 만들기 좋음" },
+        { "genreId": "folk_pop", "weight": 2, "reason": "소박하고 유대감 있는 공동체에 어울림" }
+      ],
+      "bpms": [
+        { "bpmId": "mid_up_106_120", "weight": 4, "reason": "함께 움직이는 공동의 에너지에 적합" },
+        { "bpmId": "up_121_135", "weight": 3, "reason": "큰 축제감과 고양감을 만들기 좋음" },
+        { "bpmId": "mid_91_105", "weight": 2, "reason": "편안한 연대감에도 유효함" }
+      ]
     },
-    {
-      "id": "solitude",
-      "label": "고독",
-      "labelEn": "Solitude",
-      "recommendations": { "genres": [], "bpms": [] },
-      "keywordPools": { "감정": [], "이미지": [], "행동": [], "시공간": [], "영어 키워드": [] }
+    "keywordPools": { "감정": [], "이미지": [], "행동": [], "시공간": [], "영어 키워드": [] }
+  },
+  {
+    "id": "solitude",
+    "label": "고독",
+    "labelEn": "Solitude",
+    "recommendations": {
+      "genres": [
+        { "genreId": "ambient", "weight": 4, "reason": "고요한 혼자만의 공기를 만들기 좋음" },
+        { "genreId": "ballad", "weight": 3, "reason": "내면 독백과 외로움을 직접 전달함" },
+        { "genreId": "dream_pop", "weight": 3, "reason": "부유하는 고독감을 표현하기 쉬움" },
+        { "genreId": "folk_pop", "weight": 2, "reason": "담백한 혼자됨의 정서에 어울림" }
+      ],
+      "bpms": [
+        { "bpmId": "slow_60_75", "weight": 4, "reason": "깊은 고독과 정적에 적합" },
+        { "bpmId": "slow_mid_76_90", "weight": 4, "reason": "잔잔한 혼자됨과 회상성에 잘 맞음" }
+      ]
     },
-    {
-      "id": "spring_life",
-      "label": "봄/생명",
-      "labelEn": "Spring/Life",
-      "recommendations": { "genres": [], "bpms": [] },
-      "keywordPools": { "감정": [], "이미지": [], "행동": [], "시공간": [], "영어 키워드": [] }
+    "keywordPools": { "감정": [], "이미지": [], "행동": [], "시공간": [], "영어 키워드": [] }
+  },
+  {
+    "id": "spring_life",
+    "label": "봄/생명",
+    "labelEn": "Spring/Life",
+    "recommendations": {
+      "genres": [
+        { "genreId": "pop", "weight": 4, "reason": "밝고 생기 있는 새 출발 이미지에 적합" },
+        { "genreId": "indie_rock", "weight": 3, "reason": "생동감과 청춘성을 잘 살림" },
+        { "genreId": "house", "weight": 3, "reason": "활짝 피어나는 에너지에 어울림" },
+        { "genreId": "folk_pop", "weight": 2, "reason": "자연적이고 포근한 생명감 표현 가능" }
+      ],
+      "bpms": [
+        { "bpmId": "mid_up_106_120", "weight": 4, "reason": "움직이는 생명력과 따뜻한 에너지에 적합" },
+        { "bpmId": "up_121_135", "weight": 3, "reason": "더 활짝 열린 봄의 고양감에 유효함" }
+      ]
     },
-    {
-      "id": "autumn_death",
-      "label": "가을/죽음",
-      "labelEn": "Autumn/Death",
-      "recommendations": { "genres": [], "bpms": [] },
-      "keywordPools": { "감정": [], "이미지": [], "행동": [], "시공간": [], "영어 키워드": [] }
+    "keywordPools": { "감정": [], "이미지": [], "행동": [], "시공간": [], "영어 키워드": [] }
+  },
+  {
+    "id": "autumn_death",
+    "label": "가을/죽음",
+    "labelEn": "Autumn/Death",
+    "recommendations": {
+      "genres": [
+        { "genreId": "ballad", "weight": 4, "reason": "낙엽처럼 가라앉는 감정선에 적합" },
+        { "genreId": "ambient", "weight": 4, "reason": "정지감과 사라짐의 공기를 만들기 좋음" },
+        { "genreId": "cinematic_pop", "weight": 3, "reason": "계절적 죽음과 서사적 장면감에 유리함" },
+        { "genreId": "dream_pop", "weight": 2, "reason": "퇴색된 아름다움을 표현하기 좋음" }
+      ],
+      "bpms": [
+        { "bpmId": "slow_60_75", "weight": 4, "reason": "무게감과 침잠에 적합" },
+        { "bpmId": "slow_mid_76_90", "weight": 4, "reason": "서늘한 계절감과 여운을 만들기 좋음" }
+      ]
     },
-    {
-      "id": "day_light",
-      "label": "낮/빛",
-      "labelEn": "Day/Light",
-      "recommendations": { "genres": [], "bpms": [] },
-      "keywordPools": { "감정": [], "이미지": [], "행동": [], "시공간": [], "영어 키워드": [] }
+    "keywordPools": { "감정": [], "이미지": [], "행동": [], "시공간": [], "영어 키워드": [] }
+  },
+  {
+    "id": "day_light",
+    "label": "낮/빛",
+    "labelEn": "Day/Light",
+    "recommendations": {
+      "genres": [
+        { "genreId": "pop", "weight": 4, "reason": "선명하고 개방적인 낮의 무드에 적합" },
+        { "genreId": "house", "weight": 3, "reason": "빛과 활기의 에너지를 쉽게 살릴 수 있음" },
+        { "genreId": "indie_rock", "weight": 3, "reason": "생생하고 현실적인 낮의 질감에 어울림" },
+        { "genreId": "folk_pop", "weight": 2, "reason": "따뜻하고 자연스러운 일상 빛에 적합" }
+      ],
+      "bpms": [
+        { "bpmId": "mid_up_106_120", "weight": 4, "reason": "밝고 자연스러운 전진감에 적합" },
+        { "bpmId": "up_121_135", "weight": 3, "reason": "강한 햇빛 같은 개방감을 만들 수 있음" },
+        { "bpmId": "mid_91_105", "weight": 2, "reason": "차분한 낮의 평온함에도 유효함" }
+      ]
     },
-    {
-      "id": "night_darkness",
-      "label": "밤/어둠",
-      "labelEn": "Night/Darkness",
-      "recommendations": { "genres": [], "bpms": [] },
-      "keywordPools": { "감정": [], "이미지": [], "행동": [], "시공간": [], "영어 키워드": [] }
+    "keywordPools": { "감정": [], "이미지": [], "행동": [], "시공간": [], "영어 키워드": [] }
+  },
+  {
+    "id": "night_darkness",
+    "label": "밤/어둠",
+    "labelEn": "Night/Darkness",
+    "recommendations": {
+      "genres": [
+        { "genreId": "dream_pop", "weight": 4, "reason": "밤의 몽환성과 잔향을 잘 담아냄" },
+        { "genreId": "trip_hop", "weight": 4, "reason": "도시적 밤, 고독, 불안에 잘 어울림" },
+        { "genreId": "ambient", "weight": 3, "reason": "어둠의 정적과 공기감을 키워줌" },
+        { "genreId": "rnb", "weight": 2, "reason": "은밀하고 친밀한 야간 무드를 표현 가능" }
+      ],
+      "bpms": [
+        { "bpmId": "slow_mid_76_90", "weight": 5, "reason": "밤 특유의 느린 그루브에 적합" },
+        { "bpmId": "mid_91_105", "weight": 3, "reason": "도시적 야간 팝/R&B로 확장 가능" }
+      ]
     },
-    {
-      "id": "journey",
-      "label": "여행",
-      "labelEn": "Journey",
-      "recommendations": { "genres": [], "bpms": [] },
-      "keywordPools": { "감정": [], "이미지": [], "행동": [], "시공간": [], "영어 키워드": [] }
+    "keywordPools": { "감정": [], "이미지": [], "행동": [], "시공간": [], "영어 키워드": [] }
+  },
+  {
+    "id": "journey",
+    "label": "여행",
+    "labelEn": "Journey",
+    "recommendations": {
+      "genres": [
+        { "genreId": "indie_rock", "weight": 4, "reason": "이동과 전진감, 거리감을 표현하기 좋음" },
+        { "genreId": "cinematic_pop", "weight": 4, "reason": "풍경이 바뀌는 장면감에 잘 맞음" },
+        { "genreId": "house", "weight": 2, "reason": "리듬감 있는 이동과 설렘을 만들 수 있음" },
+        { "genreId": "pop", "weight": 2, "reason": "보편적인 여행 감정을 담기 쉬움" }
+      ],
+      "bpms": [
+        { "bpmId": "mid_up_106_120", "weight": 4, "reason": "길 위의 추진감과 리듬감에 적합" },
+        { "bpmId": "up_121_135", "weight": 3, "reason": "더 역동적인 이동 에너지에 유효함" },
+        { "bpmId": "mid_91_105", "weight": 2, "reason": "차분한 여정이나 회고형 여행에도 적합" }
+      ]
     },
-    {
-      "id": "settlement",
-      "label": "정착",
-      "labelEn": "Settlement",
-      "recommendations": { "genres": [], "bpms": [] },
-      "keywordPools": { "감정": [], "이미지": [], "행동": [], "시공간": [], "영어 키워드": [] }
+    "keywordPools": { "감정": [], "이미지": [], "행동": [], "시공간": [], "영어 키워드": [] }
+  },
+  {
+    "id": "settlement",
+    "label": "정착",
+    "labelEn": "Settlement",
+    "recommendations": {
+      "genres": [
+        { "genreId": "folk_pop", "weight": 4, "reason": "안착과 일상성, 사람 냄새 나는 정착감에 적합" },
+        { "genreId": "ballad", "weight": 3, "reason": "정리와 받아들임의 감정에 잘 맞음" },
+        { "genreId": "ambient", "weight": 2, "reason": "멈춤과 안정의 공기를 만들 수 있음" },
+        { "genreId": "rnb", "weight": 2, "reason": "부드럽고 따뜻한 정착감에 유효함" }
+      ],
+      "bpms": [
+        { "bpmId": "slow_mid_76_90", "weight": 4, "reason": "안정되고 차분한 정착감에 적합" },
+        { "bpmId": "mid_91_105", "weight": 2, "reason": "편안한 일상 리듬으로 확장 가능" },
+        { "bpmId": "slow_60_75", "weight": 2, "reason": "아주 조용한 안착과 휴식감에 좋음" }
+      ]
     },
-    {
-      "id": "confidence",
-      "label": "자신감",
-      "labelEn": "Confidence",
-      "recommendations": { "genres": [], "bpms": [] },
-      "keywordPools": { "감정": [], "이미지": [], "행동": [], "시공간": [], "영어 키워드": [] }
+    "keywordPools": { "감정": [], "이미지": [], "행동": [], "시공간": [], "영어 키워드": [] }
+  },
+  {
+    "id": "confidence",
+    "label": "자신감",
+    "labelEn": "Confidence",
+    "recommendations": {
+      "genres": [
+        { "genreId": "pop", "weight": 4, "reason": "선명하고 대중적인 자신감을 전달하기 좋음" },
+        { "genreId": "house", "weight": 4, "reason": "몸이 펴지는 해방감과 당당함에 적합" },
+        { "genreId": "hip_hop", "weight": 3, "reason": "선언적이고 직진적인 자기표현에 유리함" },
+        { "genreId": "indie_rock", "weight": 2, "reason": "밴드 에너지로 추진감 있는 자신감을 만듦" }
+      ],
+      "bpms": [
+        { "bpmId": "mid_up_106_120", "weight": 4, "reason": "당당하게 앞으로 나가는 무드에 적합" },
+        { "bpmId": "up_121_135", "weight": 4, "reason": "강한 고양감과 자기 확신을 만듦" },
+        { "bpmId": "mid_91_105", "weight": 2, "reason": "차분하지만 단단한 자신감에도 유효함" }
+      ]
     },
-    {
-      "id": "freedom",
-      "label": "자유",
-      "labelEn": "Freedom",
-      "recommendations": { "genres": [], "bpms": [] },
-      "keywordPools": { "감정": [], "이미지": [], "행동": [], "시공간": [], "영어 키워드": [] }
+    "keywordPools": { "감정": [], "이미지": [], "행동": [], "시공간": [], "영어 키워드": [] }
+  },
+  {
+    "id": "freedom",
+    "label": "자유",
+    "labelEn": "Freedom",
+    "recommendations": {
+      "genres": [
+        { "genreId": "indie_rock", "weight": 4, "reason": "질주감과 해방감을 직선적으로 살림" },
+        { "genreId": "house", "weight": 4, "reason": "몸이 풀리는 자유 감각을 만들기 좋음" },
+        { "genreId": "drum_and_bass", "weight": 2, "reason": "폭발적 탈주감이 필요할 때 유효함" },
+        { "genreId": "pop", "weight": 2, "reason": "보편적이고 밝은 자유 서사에 적합" }
+      ],
+      "bpms": [
+        { "bpmId": "up_121_135", "weight": 5, "reason": "고양감과 개방감을 극대화함" },
+        { "bpmId": "mid_up_106_120", "weight": 4, "reason": "자연스러운 전진감과 활기를 만듦" },
+        { "bpmId": "very_fast_160_180", "weight": 1, "reason": "극단적인 해방감 표현에 활용 가능" }
+      ]
     },
-    {
-      "id": "confinement",
-      "label": "속박",
-      "labelEn": "Confinement",
-      "recommendations": { "genres": [], "bpms": [] },
-      "keywordPools": { "감정": [], "이미지": [], "행동": [], "시공간": [], "영어 키워드": [] }
+    "keywordPools": { "감정": [], "이미지": [], "행동": [], "시공간": [], "영어 키워드": [] }
+  },
+  {
+    "id": "confinement",
+    "label": "속박",
+    "labelEn": "Confinement",
+    "recommendations": {
+      "genres": [
+        { "genreId": "techno", "weight": 3, "reason": "반복 구조가 속박감을 강조함" },
+        { "genreId": "trip_hop", "weight": 3, "reason": "질식감 있는 도시적 무드에 적합" },
+        { "genreId": "ambient", "weight": 3, "reason": "움직이지 못하는 정지감을 키움" },
+        { "genreId": "alt_pop", "weight": 2, "reason": "현대적 억압감과 개인 서사에 어울림" }
+      ],
+      "bpms": [
+        { "bpmId": "slow_mid_76_90", "weight": 3, "reason": "답답한 맥박감과 억눌림에 적합" },
+        { "bpmId": "mid_91_105", "weight": 3, "reason": "긴장된 지속감과 억압된 리듬을 줌" },
+        { "bpmId": "fast_136_150", "weight": 1, "reason": "강박적으로 조여오는 에너지에 유효함" }
+      ]
     },
-    {
-      "id": "truth",
-      "label": "진실",
-      "labelEn": "Truth",
-      "recommendations": { "genres": [], "bpms": [] },
-      "keywordPools": { "감정": [], "이미지": [], "행동": [], "시공간": [], "영어 키워드": [] }
+    "keywordPools": { "감정": [], "이미지": [], "행동": [], "시공간": [], "영어 키워드": [] }
+  },
+  {
+    "id": "truth",
+    "label": "진실",
+    "labelEn": "Truth",
+    "recommendations": {
+      "genres": [
+        { "genreId": "folk_pop", "weight": 4, "reason": "솔직하고 인간적인 진실성 표현에 적합" },
+        { "genreId": "ballad", "weight": 3, "reason": "정면으로 말하는 감정 전달에 강함" },
+        { "genreId": "indie_rock", "weight": 2, "reason": "단단하고 현실적인 진실 선언에 어울림" },
+        { "genreId": "pop", "weight": 2, "reason": "보편적 메시지 전달에 유리함" }
+      ],
+      "bpms": [
+        { "bpmId": "mid_91_105", "weight": 3, "reason": "또렷하지만 과장되지 않은 템포감" },
+        { "bpmId": "slow_mid_76_90", "weight": 3, "reason": "차분하고 진중한 진실 고백에 적합" },
+        { "bpmId": "mid_up_106_120", "weight": 1, "reason": "확신 있는 선언형 전개에도 유효함" }
+      ]
     },
-    {
-      "id": "deception",
-      "label": "거짓",
-      "labelEn": "Deception",
-      "recommendations": { "genres": [], "bpms": [] },
-      "keywordPools": { "감정": [], "이미지": [], "행동": [], "시공간": [], "영어 키워드": [] }
+    "keywordPools": { "감정": [], "이미지": [], "행동": [], "시공간": [], "영어 키워드": [] }
+  },
+  {
+    "id": "deception",
+    "label": "거짓",
+    "labelEn": "Deception",
+    "recommendations": {
+      "genres": [
+        { "genreId": "trip_hop", "weight": 4, "reason": "서늘하고 의심스러운 분위기에 적합" },
+        { "genreId": "alt_pop", "weight": 3, "reason": "현대적 불신과 혼란을 표현하기 좋음" },
+        { "genreId": "techno", "weight": 2, "reason": "기계적 반복과 불편함을 강조할 수 있음" },
+        { "genreId": "rnb", "weight": 2, "reason": "은밀하고 감정적으로 꼬인 서사에 유효함" }
+      ],
+      "bpms": [
+        { "bpmId": "slow_mid_76_90", "weight": 3, "reason": "의심과 서늘함이 오래 남는 전개에 적합" },
+        { "bpmId": "mid_91_105", "weight": 3, "reason": "불신과 긴장감이 분명한 현대 팝 무드에 좋음" },
+        { "bpmId": "fast_136_150", "weight": 1, "reason": "강박적 추적감이나 불안 증폭에 활용 가능" }
+      ]
     },
-    {
-      "id": "celebration",
-      "label": "축하",
-      "labelEn": "Celebration",
-      "recommendations": { "genres": [], "bpms": [] },
-      "keywordPools": { "감정": [], "이미지": [], "행동": [], "시공간": [], "영어 키워드": [] }
+    "keywordPools": { "감정": [], "이미지": [], "행동": [], "시공간": [], "영어 키워드": [] }
+  },
+  {
+    "id": "celebration",
+    "label": "축하",
+    "labelEn": "Celebration",
+    "recommendations": {
+      "genres": [
+        { "genreId": "pop", "weight": 5, "reason": "축하와 밝음을 가장 직관적으로 전달함" },
+        { "genreId": "house", "weight": 4, "reason": "축제감과 신체적 에너지를 살리기 좋음" },
+        { "genreId": "hip_hop", "weight": 2, "reason": "자신감 있는 축하 서사에 어울림" },
+        { "genreId": "indie_rock", "weight": 2, "reason": "밴드형 환호와 라이브감을 줄 수 있음" }
+      ],
+      "bpms": [
+        { "bpmId": "up_121_135", "weight": 5, "reason": "축제의 고양감을 가장 크게 만듦" },
+        { "bpmId": "mid_up_106_120", "weight": 4, "reason": "밝고 힘 있는 기쁨에 적합" }
+      ]
     },
-    {
-      "id": "mourning",
-      "label": "애도",
-      "labelEn": "Mourning",
-      "recommendations": { "genres": [], "bpms": [] },
-      "keywordPools": { "감정": [], "이미지": [], "행동": [], "시공간": [], "영어 키워드": [] }
+    "keywordPools": { "감정": [], "이미지": [], "행동": [], "시공간": [], "영어 키워드": [] }
+  },
+  {
+    "id": "mourning",
+    "label": "애도",
+    "labelEn": "Mourning",
+    "recommendations": {
+      "genres": [
+        { "genreId": "ballad", "weight": 5, "reason": "애도와 추모의 감정을 가장 직접적으로 전달함" },
+        { "genreId": "ambient", "weight": 4, "reason": "고요한 장례성과 정적을 크게 살릴 수 있음" },
+        { "genreId": "cinematic_pop", "weight": 3, "reason": "장면감 있는 애도와 헌정에 적합" },
+        { "genreId": "rnb", "weight": 2, "reason": "부드럽고 개인적인 추모에도 어울림" }
+      ],
+      "bpms": [
+        { "bpmId": "slow_60_75", "weight": 5, "reason": "무게감과 추모의 침잠을 가장 잘 만듦" },
+        { "bpmId": "slow_mid_76_90", "weight": 3, "reason": "잔잔한 회고형 애도에도 적합" }
+      ]
     },
-    {
-      "id": "victory",
-      "label": "승리",
-      "labelEn": "Victory",
-      "recommendations": { "genres": [], "bpms": [] },
-      "keywordPools": { "감정": [], "이미지": [], "행동": [], "시공간": [], "영어 키워드": [] }
+    "keywordPools": { "감정": [], "이미지": [], "행동": [], "시공간": [], "영어 키워드": [] }
+  },
+  {
+    "id": "victory",
+    "label": "승리",
+    "labelEn": "Victory",
+    "recommendations": {
+      "genres": [
+        { "genreId": "house", "weight": 4, "reason": "큰 고양감과 승리의 해방감에 적합" },
+        { "genreId": "pop", "weight": 4, "reason": "선명하고 대중적인 승리 무드를 전달함" },
+        { "genreId": "indie_rock", "weight": 3, "reason": "도달과 성취의 밴드 에너지를 만듦" },
+        { "genreId": "drum_and_bass", "weight": 1, "reason": "극단적 쾌감과 질주형 승리에 유효함" }
+      ],
+      "bpms": [
+        { "bpmId": "up_121_135", "weight": 5, "reason": "고양감과 환호를 크게 끌어올림" },
+        { "bpmId": "mid_up_106_120", "weight": 3, "reason": "단단하게 밀어붙이는 성취감에 적합" },
+        { "bpmId": "very_fast_160_180", "weight": 1, "reason": "폭발적 승리감 표현에 활용 가능" }
+      ]
     },
-    {
-      "id": "defeat",
-      "label": "패배",
-      "labelEn": "Defeat",
-      "recommendations": { "genres": [], "bpms": [] },
-      "keywordPools": { "감정": [], "이미지": [], "행동": [], "시공간": [], "영어 키워드": [] }
+    "keywordPools": { "감정": [], "이미지": [], "행동": [], "시공간": [], "영어 키워드": [] }
+  },
+  {
+    "id": "defeat",
+    "label": "패배",
+    "labelEn": "Defeat",
+    "recommendations": {
+      "genres": [
+        { "genreId": "ballad", "weight": 4, "reason": "패배 이후의 낙하감을 직접적으로 전달함" },
+        { "genreId": "ambient", "weight": 4, "reason": "허무와 공백을 크게 살리기 좋음" },
+        { "genreId": "trip_hop", "weight": 2, "reason": "도시적 패배감과 자조에 적합" },
+        { "genreId": "cinematic_pop", "weight": 2, "reason": "무너진 장면과 서사를 극적으로 표현 가능" }
+      ],
+      "bpms": [
+        { "bpmId": "slow_60_75", "weight": 4, "reason": "무력감과 허무를 깊게 만들 수 있음" },
+        { "bpmId": "slow_mid_76_90", "weight": 3, "reason": "체념과 잔상 중심 전개에 적합" }
+      ]
     },
-    {
-      "id": "challenge",
-      "label": "도전",
-      "labelEn": "Challenge",
-      "recommendations": { "genres": [], "bpms": [] },
-      "keywordPools": { "감정": [], "이미지": [], "행동": [], "시공간": [], "영어 키워드": [] }
+    "keywordPools": { "감정": [], "이미지": [], "행동": [], "시공간": [], "영어 키워드": [] }
+  },
+  {
+    "id": "challenge",
+    "label": "도전",
+    "labelEn": "Challenge",
+    "recommendations": {
+      "genres": [
+        { "genreId": "indie_rock", "weight": 4, "reason": "밀고 나가는 도전성과 에너지를 잘 살림" },
+        { "genreId": "techno", "weight": 3, "reason": "끊임없이 밀어붙이는 압박형 에너지에 적합" },
+        { "genreId": "house", "weight": 3, "reason": "상승감 있는 도전 서사에 유효함" },
+        { "genreId": "drum_and_bass", "weight": 1, "reason": "극단적 속도감의 도전 무드에 활용 가능" }
+      ],
+      "bpms": [
+        { "bpmId": "mid_up_106_120", "weight": 4, "reason": "도전의 전진감과 호흡을 안정적으로 살림" },
+        { "bpmId": "up_121_135", "weight": 4, "reason": "더 강한 상승과 추진력에 적합" },
+        { "bpmId": "fast_136_150", "weight": 2, "reason": "과열된 승부감과 압박을 표현할 수 있음" }
+      ]
     },
-    {
-      "id": "giving_up",
-      "label": "포기",
-      "labelEn": "Giving Up",
-      "recommendations": { "genres": [], "bpms": [] },
-      "keywordPools": { "감정": [], "이미지": [], "행동": [], "시공간": [], "영어 키워드": [] }
-    }
-  ]
+    "keywordPools": { "감정": [], "이미지": [], "행동": [], "시공간": [], "영어 키워드": [] }
+  },
+  {
+    "id": "giving_up",
+    "label": "포기",
+    "labelEn": "Giving Up",
+    "recommendations": {
+      "genres": [
+        { "genreId": "ambient", "weight": 4, "reason": "힘이 빠지는 정지감과 포기감을 살리기 좋음" },
+        { "genreId": "ballad", "weight": 4, "reason": "체념과 고백의 감정을 전달하기 좋음" },
+        { "genreId": "trip_hop", "weight": 2, "reason": "도시적 무기력과 자조에 적합" },
+        { "genreId": "cinematic_pop", "weight": 2, "reason": "무너지는 장면감을 만들기 좋음" }
+      ],
+      "bpms": [
+        { "bpmId": "slow_60_75", "weight": 4, "reason": "무거운 체념과 이완에 적합" },
+        { "bpmId": "slow_mid_76_90", "weight": 3, "reason": "조용히 내려놓는 포기감에 잘 맞음" }
+      ]
+    },
+    "keywordPools": { "감정": [], "이미지": [], "행동": [], "시공간": [], "영어 키워드": [] }
+  }
+]
 }
