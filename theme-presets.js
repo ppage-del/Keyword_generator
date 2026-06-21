@@ -52,6 +52,12 @@ window.THEME_BUTTON_ORDER = [
   "ending",
   "friendship",
   "betrayal",
+  "truth",
+  "deception",
+  "celebration",
+  "mourning",
+  "victory",
+  "defeat",
   "night_darkness",
   "journey",
   "solitude",
@@ -60,6 +66,7 @@ window.THEME_BUTTON_ORDER = [
   "challenge",
   "giving_up"
 ];
+
 
 window.THEME_PRESETS = {
   love: {
@@ -475,6 +482,121 @@ window.THEME_PRESETS = {
       ]
     }
   },
+
+    truth: {
+    id: "truth",
+    label: "진실",
+    labelEn: "Truth",
+    recommendations: {
+      genres: [
+        { genreId: "piano_pop", weight: 4, reason: "꾸밈없이 직접 전달되는 정서와 잘 맞음" },
+        { genreId: "acoustic_pop", weight: 3, reason: "담백하고 솔직한 분위기를 살리기 좋음" },
+        { genreId: "ballad", weight: 3, reason: "고백과 고지의 감정선을 선명하게 전달할 수 있음" },
+        { genreId: "cinematic_pop", weight: 1, reason: "무거운 진실 공개나 장면 전환에 적합함" }
+      ],
+      bpms: [
+        { bpmId: "slow_mid_76_90", weight: 4, reason: "차분하게 진실을 드러내는 흐름에 적합함" },
+        { bpmId: "mid_91_105", weight: 2, reason: "보다 분명하고 직진적인 전달감에 어울림" },
+        { bpmId: "slow_60_75", weight: 1, reason: "무겁고 조심스러운 진실 고백에 적합함" }
+      ]
+    }
+  },
+
+  deception: {
+    id: "deception",
+    label: "거짓",
+    labelEn: "Deception",
+    recommendations: {
+      genres: [
+        { genreId: "trip_hop", weight: 4, reason: "불안하고 음영이 많은 심리를 표현하기 좋음" },
+        { genreId: "synthwave", weight: 2, reason: "차갑고 인공적인 느낌을 줄 수 있음" },
+        { genreId: "ambient", weight: 2, reason: "숨기고 감추는 공기를 만들기 좋음" },
+        { genreId: "techno", weight: 2, reason: "기계적 반복과 긴장감 있는 구조에 적합함" }
+      ],
+      bpms: [
+        { bpmId: "mid_91_105", weight: 3, reason: "심리전과 긴장 유지에 적합한 구간" },
+        { bpmId: "slow_mid_76_90", weight: 3, reason: "은밀하고 불안정한 감정선을 담기 좋음" },
+        { bpmId: "up_121_135", weight: 1, reason: "추격감이나 급박한 거짓의 붕괴에 어울림" }
+      ]
+    }
+  },
+
+  celebration: {
+    id: "celebration",
+    label: "축하",
+    labelEn: "Celebration",
+    recommendations: {
+      genres: [
+        { genreId: "house", weight: 4, reason: "축제감과 상승 에너지를 강하게 살릴 수 있음" },
+        { genreId: "electronic_pop", weight: 4, reason: "반짝이고 화려한 분위기 표현에 적합함" },
+        { genreId: "indie_pop", weight: 2, reason: "가볍고 사랑스러운 축하 무드에 잘 맞음" },
+        { genreId: "acoustic_pop", weight: 1, reason: "소박하고 따뜻한 축하 분위기에 적합함" }
+      ],
+      bpms: [
+        { bpmId: "up_121_135", weight: 4, reason: "밝고 활기찬 축하 무드에 가장 적합함" },
+        { bpmId: "mid_up_106_120", weight: 3, reason: "경쾌하고 대중적인 축하곡 흐름에 좋음" },
+        { bpmId: "fast_136_150", weight: 1, reason: "강한 파티/클럽형 축하 분위기에 어울림" }
+      ]
+    }
+  },
+
+  mourning: {
+    id: "mourning",
+    label: "애도",
+    labelEn: "Mourning",
+    recommendations: {
+      genres: [
+        { genreId: "ambient", weight: 4, reason: "깊은 여백과 정적인 슬픔을 표현하기 좋음" },
+        { genreId: "ballad", weight: 3, reason: "애도의 감정을 직접적으로 전달하기 좋음" },
+        { genreId: "piano_pop", weight: 3, reason: "조용하고 인간적인 슬픔에 적합함" },
+        { genreId: "cinematic_pop", weight: 2, reason: "장면감 있는 추모 서사에 잘 어울림" }
+      ],
+      bpms: [
+        { bpmId: "slow_60_75", weight: 4, reason: "애도와 추모의 무게감을 담기 적합함" },
+        { bpmId: "slow_mid_76_90", weight: 2, reason: "현대 감성형 애도 곡으로 확장하기 좋음" },
+        { bpmId: "free_or_very_slow", weight: 1, reason: "거의 멈춘 듯한 정서 표현에 적합함" }
+      ]
+    }
+  },
+
+  victory: {
+    id: "victory",
+    label: "승리",
+    labelEn: "Victory",
+    recommendations: {
+      genres: [
+        { genreId: "cinematic_pop", weight: 4, reason: "성취와 도달의 서사를 크게 펼치기 좋음" },
+        { genreId: "indie_rock", weight: 3, reason: "강한 추진력과 해방감을 담기 좋음" },
+        { genreId: "electronic_pop", weight: 2, reason: "현대적이고 선명한 고양감에 적합함" },
+        { genreId: "house", weight: 2, reason: "몸이 열리는 승리감과 파티 무드에 어울림" }
+      ],
+      bpms: [
+        { bpmId: "mid_up_106_120", weight: 4, reason: "성취감과 전진감이 균형 있게 살아남" },
+        { bpmId: "up_121_135", weight: 3, reason: "더 선명하고 역동적인 승리 무드에 적합함" },
+        { bpmId: "fast_136_150", weight: 1, reason: "극적인 클라이맥스형 승리에 어울림" }
+      ]
+    }
+  },
+
+  defeat: {
+    id: "defeat",
+    label: "패배",
+    labelEn: "Defeat",
+    recommendations: {
+      genres: [
+        { genreId: "ballad", weight: 3, reason: "좌절과 상실의 감정을 직접적으로 전달하기 좋음" },
+        { genreId: "ambient", weight: 3, reason: "무너짐 이후의 공허를 표현하기 좋음" },
+        { genreId: "piano_pop", weight: 2, reason: "담담한 패배감과 독백형 감정에 적합함" },
+        { genreId: "trip_hop", weight: 2, reason: "무거운 긴장과 패배 이후의 불안에 어울림" }
+      ],
+      bpms: [
+        { bpmId: "slow_60_75", weight: 3, reason: "패배의 무게와 가라앉는 감정선에 적합함" },
+        { bpmId: "slow_mid_76_90", weight: 3, reason: "현대 감성 곡의 패배/좌절 서사에 무난함" },
+        { bpmId: "mid_91_105", weight: 1, reason: "패배 후 다시 걷는 흐름의 정서에 어울림" }
+      ]
+    }
+  },
+
 
   challenge: {
     id: "challenge",
