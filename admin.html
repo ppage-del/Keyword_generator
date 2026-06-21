@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
+  <title>Music Idea Randomizer - Admin</title>
+  <link rel="stylesheet" href="./admin.css" />
+  <script src="./theme-presets.js" defer></script>
+  <script src="./admin.js" defer></script>
+</head>
+<body>
+  <div class="admin-shell">
+    <header class="topbar">
+      <div class="topbar__left">
+        <p class="eyebrow">ADMIN PANEL</p>
+        <h1>데이터 입력 관리자</h1>
+        <p class="subtitle">
+          대주제를 선택하고 키워드만 입력하면, 테마 JSON 또는 전체 data.json을 자동 생성합니다.
+        </p>
+      </div>
+
+      <nav class="topbar__nav">
+        <a href="./index.html" class="nav-link">추첨 페이지</a>
+      </nav>
+    </header>
+
+    <main class="layout">
+      <section class="panel panel--wide">
+        <div class="panel__header">
+          <div>
+            <h2>1. 대주제 선택</h2>
+            <p class="panel__desc">
+              버튼을 누르면 id / 한글명 / 영문명 / 추천 장르 / 추천 BPM이 자동 입력됩니다.
+            </p>
+          </div>
+          <div class="panel__actions">
+            <button type="button" id="customThemeBtn" class="btn btn--ghost">
+              직접 입력
+            </button>
+            <button type="button" id="restoreDraftBtn" class="btn btn--ghost">
+              임시저장 복원
+            </button>
+            <button type="button" id="clearDraftBtn" class="btn btn--ghost btn--danger">
+              임시저장 삭제
+            </button>
+          </div>
+        </div>
+
+        <div id="themeButtonGrid" class="theme-button-grid"></div>
+
+        <div class="theme-meta-grid">
+          <label class="field">
+            <span class="field__label">대주제 ID</span>
+            <input type="text" id="themeId" placeholder="nostalgia" />
+          </label>
+
+          <label class="field">
+            <span class="field__label">대주제 한글명</span>
+            <input type="text" id="themeLabel" placeholder="회상" />
+          </label>
+
+          <label class="field">
+            <span class="field__label">대주제 영문명</span>
+            <input type="text" id="themeLabelEn" placeholder="Nostalgia" />
+          </label>
+        </div>
+
+        <div class="recommend-grid">
+          <label class="field">
+            <span class="field__label">추천 장르 JSON 배열</span>
+            <textarea
+              id="genreRecommendations"
+              rows="8"
+              placeholder='[{"genreId":"dream_pop","weight":4,"reason":"희미한 기억과 잔향"}]'
+            ></textarea>
+          </label>
+
+          <label class="field">
+            <span class="field__label">추천 BPM JSON 배열</span>
+            <textarea
+              id="bpmRecommendations"
+              rows="8"
+              placeholder='[{"bpmId":"slow_mid_76_90","weight":5,"reason":"회상 특유의 느린 흐름"}]'
+            ></textarea>
+          </label>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="panel__header">
+          <div>
+            <h2>2. 카테고리별 입력</h2>
+            <p class="panel__desc">
+              줄바꿈 또는 쉼표로 입력해도 자동 정리됩니다.
+            </p>
+          </div>
+          <div class="panel__actions">
+            <button type="button" id="clearInputsBtn" class="btn btn--ghost">
+              현재 입력 비우기
+            </button>
+          </div>
+        </div>
+
+        <div class="category-grid">
+          <label class="field field--tall">
+            <span class="field__label">감정</span>
+            <textarea id="emotionInput" rows="10" placeholder="그리움&#10;아련함&#10;애틋함"></textarea>
+          </label>
+
+          <label class="field field--tall">
+            <span class="field__label">이미지</span>
+            <textarea id="imageInput" rows="10" placeholder="빛바랜 사진&#10;세피아 톤&#10;황혼"></textarea>
+          </label>
+
+          <label class="field field--tall">
+            <span class="field__label">행동</span>
+            <textarea id="actionInput" rows="10" placeholder="뒤돌아보기&#10;기억을 더듬기"></textarea>
+          </label>
+
+          <label class="field field--tall">
+            <span class="field__label">시공간</span>
+            <textarea id="timeSpaceInput" rows="10" placeholder="늦가을 오후&#10;오래된 골목"></textarea>
+          </label>
+
+          <label class="field field--tall">
+            <span class="field__label">영어 키워드</span>
+            <textarea id="englishInput" rows="10" placeholder="nostalgia&#10;memory&#10;afterglow"></textarea>
+          </label>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="panel__header">
+          <div>
+            <h2>3. 원본 텍스트 자동 분배</h2>
+            <p class="panel__desc">
+              감정 / 이미지 / 행동 / 시공간 / 영어 같은 헤더가 있으면 자동으로 각 칸에 분배합니다.
+            </p>
+          </div>
+          <div class="panel__actions">
+            <button type="button" id="parseRawBtn" class="btn btn--primary">
+              자동 분배
+            </button>
+          </div>
+        </div>
+
+        <label class="field">
+          <span class="field__label">원본 텍스트</span>
+          <textarea
+            id="rawInput"
+            rows="14"
+            placeholder="감정&#10;그리움&#10;아련함&#10;&#10;이미지&#10;빛바랜 사진&#10;황혼&#10;&#10;행동&#10;뒤돌아보기&#10;&#10;시공간&#10;늦가을 오후&#10;&#10;영어&#10;nostalgia&#10;memory"
+          ></textarea>
+        </label>
+      </section>
+
+      <section class="panel">
+        <div class="panel__header">
+          <div>
+            <h2>4. 미리보기</h2>
+            <p class="panel__desc">
+              입력 개수, 추천값, 생성될 JSON을 바로 확인할 수 있습니다.
+            </p>
+          </div>
+        </div>
+
+        <div class="preview-grid">
+          <div class="preview-card">
+            <h3>입력 현황</h3>
+            <div id="countsView" class="counts-view"></div>
+          </div>
+
+          <div class="preview-card">
+            <h3>추천값 미리보기</h3>
+            <div id="recommendationView" class="recommendation-view"></div>
+          </div>
+        </div>
+
+        <div class="summary-box" id="summaryBox"></div>
+      </section>
+
+      <section class="panel panel--wide">
+        <div class="panel__header">
+          <div>
+            <h2>5. JSON 생성 / 복사 / 다운로드</h2>
+            <p class="panel__desc">
+              현재 테마 JSON, keywordPools만, 전체 data.json 병합본을 생성할 수 있습니다.
+            </p>
+          </div>
+        </div>
+
+        <div class="action-bar">
+          <button type="button" id="generateThemeBtn" class="btn btn--primary">
+            현재 테마 JSON 생성
+          </button>
+          <button type="button" id="generatePoolsBtn" class="btn btn--ghost">
+            keywordPools만 생성
+          </button>
+          <button type="button" id="generateDataBtn" class="btn btn--ghost">
+            전체 data.json 병합 생성
+          </button>
+          <button type="button" id="copyOutputBtn" class="btn btn--secondary">
+            출력 복사
+          </button>
+          <button type="button" id="downloadOutputBtn" class="btn btn--secondary">
+            JSON 다운로드
+          </button>
+        </div>
+
+        <label class="field">
+          <span class="field__label">생성 결과</span>
+          <textarea id="outputJson" rows="22" readonly></textarea>
+        </label>
+      </section>
+    </main>
+
+    <footer class="statusbar">
+      <span id="statusText">준비 완료</span>
+    </footer>
+  </div>
+</body>
+</html>
