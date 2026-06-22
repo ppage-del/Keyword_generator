@@ -2,116 +2,167 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
   <title>Music Idea Randomizer</title>
+  <meta
+    name="description"
+    content="대주제 1~2개를 선택하고 감정, 이미지, 행동, 시공간, 영어 키워드를 랜덤 추첨하는 음악 아이디어 랜덤라이저"
+  />
   <link rel="stylesheet" href="./style.css" />
+  <script src="./app.js" defer></script>
 </head>
 <body>
-  <div class="app-shell">
+  <div class="site-shell">
     <header class="hero">
-      <div class="top-nav">
-        <a class="nav-link" href="./index.html">추첨기</a>
-        <a class="nav-link" href="./admin.html">JSON 변환기</a>
+      <div class="hero__content">
+        <p class="hero__eyebrow">MUSIC IDEA RANDOMIZER</p>
+        <h1>음악 아이디어 랜덤 추첨기</h1>
+        <p class="hero__desc">
+          대주제를 1개 또는 2개 선택한 뒤, 감정 · 이미지 · 행동 · 시공간 · 영어 키워드를 랜덤으로 뽑고
+          추천 장르와 BPM 가이드까지 함께 확인할 수 있습니다.
+        </p>
+
+        <div class="hero__nav">
+          <a href="./admin.html" class="nav-link">데이터 관리자</a>
+        </div>
       </div>
-      <p class="hero-kicker">Music Idea Randomizer</p>
-      <h1>음악 창작 키워드 추첨기</h1>
-      <p class="hero-desc">
-        대주제를 1개 또는 2개 고르고, 각 대주제 안에 저장된
-        감정 / 이미지 / 행동 / 시공간 / 영어 키워드를 랜덤으로 추첨하세요.
-      </p>
     </header>
 
-    <main class="main-grid">
+    <main class="page-layout">
+      <!-- 1. Theme Selection -->
       <section class="panel">
-        <div class="panel-head">
+        <div class="panel__header">
           <div>
-            <h2>BPM / 장르 가이드</h2>
-            <p class="panel-sub">라이브러리에 적어둔 BPM/장르 참고 정보</p>
-          </div>
-        </div>
-
-        <div class="guide-grid">
-          <div class="guide-block">
-            <h3>BPM 가이드</h3>
-            <div id="bpmLibraryView" class="guide-list"></div>
-          </div>
-
-          <div class="guide-block">
-            <h3>장르 가이드</h3>
-            <div id="genreLibraryView" class="guide-list"></div>
-          </div>
-        </div>
-      </section>
-      <section class="panel">
-        <div class="panel-head">
-          <div>
-            <h2>대주제 선택</h2>
-            <p class="panel-sub">최대 2개까지 선택할 수 있어요.</p>
-          </div>
-          <div id="selectedSummary" class="selected-summary">
-            선택된 대주제: 없음
+            <h2>1. 대주제 선택</h2>
+            <p class="panel__desc">
+              대주제는 최대 2개까지 선택할 수 있습니다. 두 개를 선택하면 키워드 풀과 추천값이 함께 반영됩니다.
+            </p>
           </div>
         </div>
 
         <div id="themeGrid" class="theme-grid"></div>
       </section>
 
-      <section class="panel control-panel">
-        <div class="control-buttons">
-          <button id="drawBtn" class="btn btn-primary">랜덤 추첨</button>
-          <button id="copyKeywordsBtn" class="btn btn-secondary">전체 키워드 복사</button>
-          <button id="copyBtn" class="btn btn-ghost">결과 복사</button>
-          <button id="resetBtn" class="btn btn-ghost">선택 초기화</button>
+      <!-- 2. Selected Themes + Main Actions -->
+      <section class="panel">
+        <div class="panel__header">
+          <div>
+            <h2>2. 선택 상태 및 실행</h2>
+            <p class="panel__desc">
+              현재 선택된 대주제를 확인하고 랜덤 추첨, 복사, 초기화를 실행할 수 있습니다.
+            </p>
+          </div>
         </div>
-        <p class="panel-note">
-          추천 장르 / BPM은 선택한 대주제들의 추천값을 합산해 상위 순서로 보여줍니다.
-        </p>
+
+        <div id="selectedThemesView" class="selected-themes-view"></div>
+
+        <div class="action-bar main-actions">
+          <button type="button" id="drawBtn">랜덤 추첨</button>
+          <button type="button" id="resetBtn">선택 초기화</button>
+          <button type="button" id="copyResultBtn">전체 결과 복사</button>
+          <button type="button" id="copyKeywordsBtn">키워드만 복사</button>
+        </div>
       </section>
 
+      <!-- 3. Keyword Draw Result -->
       <section class="panel">
-        <div class="panel-head">
+        <div class="panel__header">
           <div>
-            <h2>추첨 결과</h2>
-            <p class="panel-sub">랜덤 키워드와 추천 장르 / BPM</p>
+            <h2>3. 랜덤 키워드 결과</h2>
+            <p class="panel__desc">
+              각 카테고리별로 1개씩 추첨됩니다. 카드 안에서 개별 재추첨과 개별 복사도 가능합니다.
+            </p>
           </div>
         </div>
 
-        <div id="emptyState" class="empty-state">
-          아직 추첨 결과가 없습니다. 대주제를 1개 이상 선택한 뒤
-          <strong>랜덤 추첨</strong> 버튼을 눌러보세요.
-        </div>
+        <div id="keywordResults" class="card-grid keyword-results-grid"></div>
+      </section>
 
-        <div id="resultWrap" class="result-wrap is-hidden">
-          <div class="result-section">
-            <h3>선택 주제별 추천</h3>
-            <div id="themeRecommendationsView" class="theme-recommend-grid"></div>
-          </div>
-          <div class="result-section">
-            <h3>선택된 대주제</h3>
-            <div id="selectedThemesView" class="selected-themes-view"></div>
-          </div>
-
-          <div class="result-section">
-            <h3>랜덤 키워드</h3>
-            <div id="keywordCards" class="keyword-cards"></div>
-          </div>
-
-          <div class="recommend-grid">
-            <div class="result-section">
-              <h3>추천 장르</h3>
-              <div id="genreRecommendations" class="recommend-list"></div>
-            </div>
-
-            <div class="result-section">
-              <h3>추천 BPM</h3>
-              <div id="bpmRecommendations" class="recommend-list"></div>
-            </div>
+      <!-- 4. Recommended Genre / BPM -->
+      <section class="panel">
+        <div class="panel__header">
+          <div>
+            <h2>4. 추천 장르 · BPM</h2>
+            <p class="panel__desc">
+              선택한 대주제의 추천값을 합산하여 상위 장르와 BPM 구간을 보여줍니다.
+            </p>
           </div>
         </div>
+
+        <div class="recommend-layout">
+          <div>
+            <h3 class="section-subtitle">추천 장르</h3>
+            <div id="genreResults" class="card-grid recommend-grid"></div>
+          </div>
+
+          <div>
+            <h3 class="section-subtitle">추천 BPM</h3>
+            <div id="bpmResults" class="card-grid recommend-grid"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 5. Theme-based Recommendation Cards -->
+      <section class="panel">
+        <div class="panel__header">
+          <div>
+            <h2>5. 대주제별 추천 해설</h2>
+            <p class="panel__desc">
+              현재 선택한 각 대주제에 대해, 어떤 장르와 BPM이 잘 맞는지 이유와 함께 확인합니다.
+            </p>
+          </div>
+        </div>
+
+        <div id="themeRecommendationsView" class="card-grid theme-rec-grid"></div>
+      </section>
+
+      <!-- 6. BPM Guide -->
+      <section class="panel">
+        <div class="panel__header">
+          <div>
+            <h2>6. BPM 가이드</h2>
+            <p class="panel__desc">
+              BPM 구간별 분위기, 잘 맞는 테마, 자주 어울리는 장르, 작곡 팁을 한 번에 확인할 수 있습니다.
+            </p>
+          </div>
+        </div>
+
+        <div id="bpmLibraryView" class="guide-grid bpm-guide-grid"></div>
+      </section>
+
+      <!-- 7. Genre Guide -->
+      <section class="panel">
+        <div class="panel__header">
+          <div>
+            <h2>7. 장르 가이드</h2>
+            <p class="panel__desc">
+              장르별 대표 BPM, 무드, 어울리는 테마, 악기, 보컬 톤, 편곡 팁을 참고용으로 볼 수 있습니다.
+            </p>
+          </div>
+        </div>
+
+        <div id="genreLibraryView" class="guide-grid genre-guide-grid"></div>
+      </section>
+
+      <!-- 8. History -->
+      <section class="panel">
+        <div class="panel__header">
+          <div>
+            <h2>8. 최근 추첨 히스토리</h2>
+            <p class="panel__desc">
+              최근 추첨 결과를 최대 20개까지 브라우저에 저장해 다시 볼 수 있습니다.
+            </p>
+          </div>
+        </div>
+
+        <div id="historyView" class="history-grid"></div>
       </section>
     </main>
   </div>
 
-  <script src="./app.js"></script>
+  <div id="toast" class="toast" aria-live="polite"></div>
 </body>
 </html>
