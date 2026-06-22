@@ -44,31 +44,34 @@ select {
    2) Role Color Tokens
 ========================================= */
 :root {
-  --role-draw-1: #7c9cff;
-  --role-draw-2: #5c7cff;
-  --role-draw-shadow: rgba(92, 124, 255, 0.34);
+  --role-draw-1: #7f98ff;
+  --role-draw-2: #4e6fff;
+  --role-draw-shadow: rgba(78, 111, 255, 0.42);
 
-  --role-reset-1: #5f687d;
-  --role-reset-2: #444d62;
-  --role-reset-shadow: rgba(70, 77, 98, 0.28);
+  --role-reset-1: #697388;
+  --role-reset-2: #485064;
+  --role-reset-shadow: rgba(72, 80, 100, 0.34);
 
-  --role-copy-1: #2fd5c4;
-  --role-copy-2: #159f94;
-  --role-copy-shadow: rgba(47, 213, 196, 0.30);
+  --role-copy-1: #36dbc9;
+  --role-copy-2: #149f92;
+  --role-copy-shadow: rgba(54, 219, 201, 0.34);
 
-  --role-keyword-1: #f8c35f;
-  --role-keyword-2: #eb9530;
-  --role-keyword-shadow: rgba(248, 195, 95, 0.30);
+  --role-keyword-1: #ffd16a;
+  --role-keyword-2: #f39a31;
+  --role-keyword-shadow: rgba(255, 209, 106, 0.36);
 
-  --role-mini-reroll-bg: rgba(110, 135, 255, 0.16);
-  --role-mini-reroll-border: rgba(124, 156, 255, 0.28);
-  --role-mini-reroll-text: #dfe8ff;
+  --role-mini-reroll-bg: rgba(110, 135, 255, 0.18);
+  --role-mini-reroll-border: rgba(124, 156, 255, 0.34);
+  --role-mini-reroll-text: #e7edff;
 
-  --role-mini-copy-bg: rgba(47, 213, 196, 0.12);
-  --role-mini-copy-border: rgba(47, 213, 196, 0.26);
-  --role-mini-copy-text: #d7fffa;
+  --role-mini-copy-bg: rgba(47, 213, 196, 0.15);
+  --role-mini-copy-border: rgba(47, 213, 196, 0.30);
+  --role-mini-copy-text: #ddfffb;
 
-  --focus-ring: 0 0 0 4px rgba(255, 255, 255, 0.09);
+  --focus-ring: 0 0 0 4px rgba(255, 255, 255, 0.10);
+
+  --panel-strong: rgba(255, 255, 255, 0.055);
+  --panel-line: rgba(255, 255, 255, 0.10);
 }
 
 /* =========================================
@@ -77,7 +80,11 @@ select {
 .btn-role,
 .mini-btn,
 .theme-tile,
-.nav-link {
+.nav-link,
+#drawBtn,
+#resetBtn,
+#copyResultBtn,
+#copyKeywordsBtn {
   transition:
     transform 0.16s ease,
     box-shadow 0.16s ease,
@@ -87,15 +94,35 @@ select {
     filter 0.16s ease;
 }
 
+.btn-role,
+.mini-btn,
+.theme-tile,
+#drawBtn,
+#resetBtn,
+#copyResultBtn,
+#copyKeywordsBtn {
+  appearance: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+}
+
 .btn-role:focus-visible,
 .mini-btn:focus-visible,
 .theme-tile:focus-visible,
-.nav-link:focus-visible {
+.nav-link:focus-visible,
+#drawBtn:focus-visible,
+#resetBtn:focus-visible,
+#copyResultBtn:focus-visible,
+#copyKeywordsBtn:focus-visible {
   outline: none;
   box-shadow: var(--focus-ring);
 }
 
-.btn-role {
+.btn-role,
+#drawBtn,
+#resetBtn,
+#copyResultBtn,
+#copyKeywordsBtn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -111,70 +138,91 @@ select {
   overflow: hidden;
 }
 
-.btn-role::before {
+.btn-role::before,
+#drawBtn::before,
+#resetBtn::before,
+#copyResultBtn::before,
+#copyKeywordsBtn::before {
   content: "";
   position: absolute;
   inset: 0;
   background: linear-gradient(
     180deg,
-    rgba(255,255,255,0.12),
-    rgba(255,255,255,0.02)
+    rgba(255,255,255,0.15),
+    rgba(255,255,255,0.03)
   );
   pointer-events: none;
 }
 
-.btn-role:hover {
+.btn-role:hover,
+#drawBtn:hover,
+#resetBtn:hover,
+#copyResultBtn:hover,
+#copyKeywordsBtn:hover {
   transform: translateY(-2px);
 }
 
-.btn-role:active {
+.btn-role:active,
+#drawBtn:active,
+#resetBtn:active,
+#copyResultBtn:active,
+#copyKeywordsBtn:active {
   transform: translateY(0);
 }
 
 /* =========================================
    4) Main Action Buttons
+   - class + id both supported
 ========================================= */
-.btn-role--draw {
+.btn-role--draw,
+#drawBtn {
   color: #ffffff;
   background: linear-gradient(135deg, var(--role-draw-1), var(--role-draw-2));
-  box-shadow: 0 10px 24px var(--role-draw-shadow);
+  box-shadow: 0 12px 28px var(--role-draw-shadow);
 }
 
-.btn-role--draw:hover {
-  box-shadow: 0 14px 30px var(--role-draw-shadow);
-  filter: brightness(1.04);
+.btn-role--draw:hover,
+#drawBtn:hover {
+  box-shadow: 0 16px 34px var(--role-draw-shadow);
+  filter: brightness(1.05);
 }
 
-.btn-role--reset {
+.btn-role--reset,
+#resetBtn {
   color: #ffffff;
   background: linear-gradient(135deg, var(--role-reset-1), var(--role-reset-2));
-  box-shadow: 0 8px 20px var(--role-reset-shadow);
+  box-shadow: 0 10px 22px var(--role-reset-shadow);
 }
 
-.btn-role--reset:hover {
-  filter: brightness(1.06);
+.btn-role--reset:hover,
+#resetBtn:hover {
+  filter: brightness(1.07);
 }
 
-.btn-role--copy {
+.btn-role--copy,
+#copyResultBtn {
   color: #ffffff;
   background: linear-gradient(135deg, var(--role-copy-1), var(--role-copy-2));
-  box-shadow: 0 10px 24px var(--role-copy-shadow);
+  box-shadow: 0 12px 28px var(--role-copy-shadow);
 }
 
-.btn-role--copy:hover {
-  box-shadow: 0 14px 30px var(--role-copy-shadow);
-  filter: brightness(1.03);
+.btn-role--copy:hover,
+#copyResultBtn:hover {
+  box-shadow: 0 16px 34px var(--role-copy-shadow);
+  filter: brightness(1.04);
 }
 
-.btn-role--keywords {
+.btn-role--keywords,
+#copyKeywordsBtn {
   color: #1d2433;
   background: linear-gradient(135deg, var(--role-keyword-1), var(--role-keyword-2));
-  box-shadow: 0 10px 24px var(--role-keyword-shadow);
+  box-shadow: 0 12px 28px var(--role-keyword-shadow);
 }
 
-.btn-role--keywords:hover {
-  box-shadow: 0 14px 30px var(--role-keyword-shadow);
-  filter: brightness(1.04);
+.btn-role--keywords:hover,
+#copyKeywordsBtn:hover {
+  box-shadow: 0 16px 34px var(--role-keyword-shadow);
+  filter: brightness(1.05);
 }
 
 /* 버튼 그룹 정렬 */
@@ -189,7 +237,7 @@ select {
 }
 
 /* =========================================
-   5) Theme Tiles - Clearly Distinguishable
+   5) Theme Tiles - Stronger Visual Identity
 ========================================= */
 .theme-tile {
   display: flex;
@@ -198,27 +246,39 @@ select {
   justify-content: center;
   gap: 7px;
   width: 100%;
-  min-height: 98px;
-  padding: 15px 15px 14px;
+  min-height: 102px;
+  padding: 16px 16px 15px;
   border-radius: 18px;
-  border: 1px solid rgba(255,255,255,0.08);
-  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.10);
+  background: rgba(255,255,255,0.05);
   text-align: left;
   position: relative;
   user-select: none;
-  backdrop-filter: none;
+  color: #f7faff;
+  overflow: hidden;
+}
+
+.theme-tile::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 5px;
+  border-radius: 18px 0 0 18px;
+  background: rgba(255,255,255,0.18);
 }
 
 .theme-tile:hover {
-  transform: translateY(-2px);
-  border-color: rgba(255,255,255,0.18);
+  transform: translateY(-2px) scale(1.01);
+  border-color: rgba(255,255,255,0.22);
+  box-shadow: 0 14px 28px rgba(0,0,0,0.18);
 }
 
 .theme-tile.is-selected {
-  border-color: rgba(255,255,255,0.32);
+  border-color: rgba(255,255,255,0.38);
   box-shadow:
-    0 0 0 2px rgba(255,255,255,0.06),
-    0 10px 24px rgba(0,0,0,0.16);
+    0 0 0 2px rgba(255,255,255,0.08),
+    0 16px 34px rgba(0,0,0,0.22);
+  transform: translateY(-1px);
 }
 
 .theme-tile.is-selected::after {
@@ -230,73 +290,104 @@ select {
   font-weight: 800;
   padding: 5px 8px;
   border-radius: 999px;
-  background: rgba(255,255,255,0.14);
+  background: rgba(255,255,255,0.18);
   color: #fff;
+  backdrop-filter: blur(4px);
 }
 
 .theme-tile.is-disabled {
   opacity: 0.45;
-  filter: grayscale(0.16);
+  filter: grayscale(0.18);
   cursor: not-allowed;
 }
 
 .theme-tile__emoji {
-  font-size: 1.35rem;
+  font-size: 1.42rem;
   line-height: 1;
 }
 
 .theme-tile__label {
-  font-size: 1.04rem;
+  font-size: 1.05rem;
   font-weight: 800;
-  line-height: 1.2;
+  line-height: 1.22;
   letter-spacing: -0.02em;
 }
 
 .theme-tile__sub {
-  font-size: 0.87rem;
-  opacity: 0.84;
+  font-size: 0.88rem;
+  opacity: 0.88;
   line-height: 1.2;
 }
 
 /* Theme tone colors */
 .theme-tile[data-tone="warm"] {
-  background: linear-gradient(180deg, rgba(255, 136, 105, 0.20), rgba(255,255,255,0.04));
+  background: linear-gradient(180deg, rgba(255, 136, 105, 0.28), rgba(255,255,255,0.04));
+}
+.theme-tile[data-tone="warm"]::before {
+  background: #ff8b68;
 }
 
 .theme-tile[data-tone="dark"] {
-  background: linear-gradient(180deg, rgba(99, 106, 128, 0.22), rgba(255,255,255,0.04));
+  background: linear-gradient(180deg, rgba(99, 106, 128, 0.28), rgba(255,255,255,0.04));
+}
+.theme-tile[data-tone="dark"]::before {
+  background: #8b93ad;
 }
 
 .theme-tile[data-tone="bright"] {
-  background: linear-gradient(180deg, rgba(255, 210, 92, 0.20), rgba(255,255,255,0.04));
+  background: linear-gradient(180deg, rgba(255, 210, 92, 0.28), rgba(255,255,255,0.04));
+}
+.theme-tile[data-tone="bright"]::before {
+  background: #ffd25c;
 }
 
 .theme-tile[data-tone="sky"] {
-  background: linear-gradient(180deg, rgba(106, 173, 255, 0.20), rgba(255,255,255,0.04));
+  background: linear-gradient(180deg, rgba(106, 173, 255, 0.28), rgba(255,255,255,0.04));
+}
+.theme-tile[data-tone="sky"]::before {
+  background: #6aadff;
 }
 
 .theme-tile[data-tone="mint"] {
-  background: linear-gradient(180deg, rgba(86, 213, 177, 0.20), rgba(255,255,255,0.04));
+  background: linear-gradient(180deg, rgba(86, 213, 177, 0.28), rgba(255,255,255,0.04));
+}
+.theme-tile[data-tone="mint"]::before {
+  background: #56d5b1;
 }
 
 .theme-tile[data-tone="fire"] {
-  background: linear-gradient(180deg, rgba(255, 106, 106, 0.22), rgba(255,255,255,0.04));
+  background: linear-gradient(180deg, rgba(255, 106, 106, 0.30), rgba(255,255,255,0.04));
+}
+.theme-tile[data-tone="fire"]::before {
+  background: #ff6a6a;
 }
 
 .theme-tile[data-tone="earth"] {
-  background: linear-gradient(180deg, rgba(176, 137, 104, 0.22), rgba(255,255,255,0.04));
+  background: linear-gradient(180deg, rgba(176, 137, 104, 0.28), rgba(255,255,255,0.04));
+}
+.theme-tile[data-tone="earth"]::before {
+  background: #b08968;
 }
 
 .theme-tile[data-tone="violet"] {
-  background: linear-gradient(180deg, rgba(156, 118, 255, 0.22), rgba(255,255,255,0.04));
+  background: linear-gradient(180deg, rgba(156, 118, 255, 0.30), rgba(255,255,255,0.04));
+}
+.theme-tile[data-tone="violet"]::before {
+  background: #9c76ff;
 }
 
 .theme-tile[data-tone="gold"] {
-  background: linear-gradient(180deg, rgba(255, 196, 86, 0.24), rgba(255,255,255,0.04));
+  background: linear-gradient(180deg, rgba(255, 196, 86, 0.30), rgba(255,255,255,0.04));
+}
+.theme-tile[data-tone="gold"]::before {
+  background: #ffc456;
 }
 
 .theme-tile[data-tone="neutral"] {
-  background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03));
+  background: linear-gradient(180deg, rgba(255,255,255,0.10), rgba(255,255,255,0.04));
+}
+.theme-tile[data-tone="neutral"]::before {
+  background: rgba(255,255,255,0.36);
 }
 
 /* =========================================
@@ -338,7 +429,8 @@ select {
 }
 
 .mini-btn--reroll:hover {
-  box-shadow: 0 8px 18px rgba(124, 156, 255, 0.16);
+  box-shadow: 0 8px 18px rgba(124, 156, 255, 0.18);
+  filter: brightness(1.04);
 }
 
 .mini-btn--copy {
@@ -348,7 +440,8 @@ select {
 }
 
 .mini-btn--copy:hover {
-  box-shadow: 0 8px 18px rgba(47, 213, 196, 0.14);
+  box-shadow: 0 8px 18px rgba(47, 213, 196, 0.16);
+  filter: brightness(1.04);
 }
 
 /* =========================================
@@ -359,10 +452,11 @@ select {
 .guide-item,
 .theme-rec-card,
 .history-card {
-  border: 1px solid rgba(255,255,255,0.08);
+  border: 1px solid var(--panel-line);
   border-radius: 18px;
   padding: 18px;
-  background: rgba(255,255,255,0.04);
+  background: var(--panel-strong);
+  box-shadow: 0 10px 24px rgba(0,0,0,0.08);
 }
 
 .keyword-card__header,
@@ -401,8 +495,8 @@ select {
   min-height: 38px;
   padding: 7px 12px;
   border-radius: 999px;
-  background: rgba(255,255,255,0.06);
-  border: 1px solid rgba(255,255,255,0.08);
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.10);
   font-size: 0.9rem;
 }
 
@@ -428,7 +522,7 @@ select {
   min-width: 42px;
   min-height: 42px;
   border-radius: 999px;
-  background: rgba(255,255,255,0.08);
+  background: rgba(255,255,255,0.10);
   font-weight: 900;
   margin-bottom: 10px;
 }
@@ -500,37 +594,8 @@ select {
 }
 
 /* =========================================
-   9) Mobile Tuning
+   9) Layout
 ========================================= */
-@media (max-width: 760px) {
-  html {
-    font-size: 17px;
-  }
-
-  .btn-role {
-    width: 100%;
-  }
-
-  .theme-tile {
-    min-height: 90px;
-  }
-
-  .keyword-card__header,
-  .theme-rec-card__header,
-  .history-card__top {
-    flex-direction: column;
-  }
-
-  .keyword-card__actions {
-    width: 100%;
-  }
-
-  .mini-btn {
-    flex: 1 1 calc(50% - 4px);
-  }
-}
-
-
 .site-shell {
   width: min(1440px, calc(100% - 28px));
   margin: 24px auto 48px;
@@ -542,8 +607,8 @@ select {
   border-radius: 24px;
   border: 1px solid rgba(255,255,255,0.08);
   background:
-    radial-gradient(circle at top left, rgba(124,156,255,0.18), transparent 28%),
-    radial-gradient(circle at top right, rgba(47,213,196,0.12), transparent 22%),
+    radial-gradient(circle at top left, rgba(124,156,255,0.22), transparent 28%),
+    radial-gradient(circle at top right, rgba(47,213,196,0.14), transparent 22%),
     rgba(255,255,255,0.04);
 }
 
@@ -635,6 +700,9 @@ select {
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
 }
 
+/* =========================================
+   10) Mobile Tuning
+========================================= */
 @media (max-width: 860px) {
   .recommend-layout {
     grid-template-columns: 1fr;
@@ -643,4 +711,142 @@ select {
   .panel__header {
     flex-direction: column;
   }
+}
+
+@media (max-width: 760px) {
+  html {
+    font-size: 17px;
+  }
+
+  .btn-role,
+  #drawBtn,
+  #resetBtn,
+  #copyResultBtn,
+  #copyKeywordsBtn {
+    width: 100%;
+  }
+
+  .theme-tile {
+    min-height: 92px;
+  }
+
+  .keyword-card__header,
+  .theme-rec-card__header,
+  .history-card__top {
+    flex-direction: column;
+  }
+
+  .keyword-card__actions {
+    width: 100%;
+  }
+
+  .mini-btn {
+    flex: 1 1 calc(50% - 4px);
+  }
+}
+
+/* =========================================
+   FIX: White Background / Low Contrast
+   style.css 맨 아래에 추가
+========================================= */
+
+html,
+body {
+  background: #0b1020 !important;
+  color: #e9eefc !important;
+}
+
+body {
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at top left, rgba(124, 156, 255, 0.14), transparent 28%),
+    radial-gradient(circle at top right, rgba(47, 213, 196, 0.10), transparent 22%),
+    #0b1020 !important;
+}
+
+/* 전체 레이아웃 */
+.site-shell {
+  color: #e9eefc;
+}
+
+/* 상단 히어로 */
+.hero {
+  background:
+    radial-gradient(circle at top left, rgba(124,156,255,0.20), transparent 28%),
+    radial-gradient(circle at top right, rgba(47,213,196,0.12), transparent 22%),
+    rgba(19, 26, 48, 0.96) !important;
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+/* 모든 주요 패널 */
+.panel {
+  background: rgba(19, 26, 48, 0.96) !important;
+  border: 1px solid rgba(255,255,255,0.08) !important;
+  color: #e9eefc !important;
+}
+
+/* 카드류 전부 어둡게 고정 */
+.keyword-card,
+.recommend-card,
+.guide-item,
+.theme-rec-card,
+.history-card {
+  background: rgba(15, 21, 48, 0.96) !important;
+  border: 1px solid rgba(255,255,255,0.10) !important;
+  color: #e9eefc !important;
+}
+
+/* 선택된 테마 표시 */
+.selected-theme-pill,
+.keyword-meta-pill,
+.summary-pill {
+  background: rgba(255,255,255,0.08) !important;
+  border: 1px solid rgba(255,255,255,0.12) !important;
+  color: #f7fbff !important;
+}
+
+/* 대주제 블럭 */
+.theme-tile {
+  color: #f7fbff !important;
+  border-color: rgba(255,255,255,0.12) !important;
+}
+
+/* 보조 텍스트 */
+.panel__desc,
+.hero__desc,
+.theme-tile__sub,
+.selected-theme-pill__sub,
+.empty-note,
+.keyword-card__desc,
+.guide-item p,
+.recommend-card p,
+.theme-rec-line,
+.history-card__meta,
+.history-card__words {
+  color: rgba(233, 238, 252, 0.88) !important;
+}
+
+/* 제목류 */
+h1, h2, h3, h4,
+.theme-tile__label,
+.keyword-card__value,
+.recommend-card__rank {
+  color: #ffffff !important;
+}
+
+/* 입력 요소가 있다면 */
+input,
+textarea,
+select {
+  background: #0b1125 !important;
+  color: #e9eefc !important;
+  border: 1px solid rgba(255,255,255,0.12) !important;
+}
+
+/* 링크 */
+a {
+  color: #cfe0ff;
+}
+a:hover {
+  color: #ffffff;
 }
