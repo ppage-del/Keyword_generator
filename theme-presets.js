@@ -52,17 +52,25 @@ window.THEME_BUTTON_ORDER = [
   "ending",
   "friendship",
   "betrayal",
+  "hospitality",
+  "alienation",
+  "community",
+  "spring_life",
+  "autumn_death",
+  "day_light",
+  "night_darkness",
+  "journey",
+  "settlement",
+  "solitude",
+  "confidence",
+  "freedom",
+  "confinement",
   "truth",
   "deception",
   "celebration",
   "mourning",
   "victory",
   "defeat",
-  "night_darkness",
-  "journey",
-  "solitude",
-  "freedom",
-  "confinement",
   "challenge",
   "giving_up"
 ];
@@ -409,7 +417,7 @@ window.THEME_PRESETS = {
 
   journey: {
     id: "journey",
-    label: "여정",
+    label: "여행",
     labelEn: "Journey",
     recommendations: {
       genres: [
@@ -613,6 +621,158 @@ window.THEME_PRESETS = {
         { bpmId: "mid_up_106_120", weight: 4, reason: "도전의 추진력과 균형감이 좋음" },
         { bpmId: "up_121_135", weight: 3, reason: "더 강한 질주감과 몰입감에 적합함" },
         { bpmId: "fast_136_150", weight: 1, reason: "극한의 고조감을 줄 때 사용할 수 있음" }
+      ]
+    }
+  },
+
+    hospitality: {
+    id: "hospitality",
+    label: "환대",
+    labelEn: "Hospitality",
+    recommendations: {
+      genres: [
+        { genreId: "acoustic_pop", weight: 4, reason: "따뜻하고 사람을 맞이하는 정서를 담기 좋음" },
+        { genreId: "folk_pop", weight: 3, reason: "인간적인 온기와 공동의 공간감을 표현하기 적합함" },
+        { genreId: "indie_pop", weight: 2, reason: "가볍고 친근한 분위기의 환대에 잘 어울림" },
+        { genreId: "neo_soul", weight: 1, reason: "부드럽고 여유로운 맞이의 분위기를 줄 수 있음" }
+      ],
+      bpms: [
+        { bpmId: "mid_91_105", weight: 3, reason: "자연스럽고 편안한 관계의 흐름에 적합함" },
+        { bpmId: "slow_mid_76_90", weight: 3, reason: "조용하고 따뜻한 환대의 감정선에 잘 맞음" },
+        { bpmId: "mid_up_106_120", weight: 1, reason: "조금 더 밝고 활기찬 맞이 분위기에 어울림" }
+      ]
+    }
+  },
+
+  alienation: {
+    id: "alienation",
+    label: "소외",
+    labelEn: "Alienation",
+    recommendations: {
+      genres: [
+        { genreId: "ambient", weight: 4, reason: "멀어짐과 비어 있는 공간감을 표현하기 좋음" },
+        { genreId: "trip_hop", weight: 3, reason: "도시적 거리감과 심리적 분리를 담기 좋음" },
+        { genreId: "dream_pop", weight: 2, reason: "흐릿하고 닿지 않는 감각을 표현하기 적합함" },
+        { genreId: "piano_pop", weight: 1, reason: "담담한 독백형 소외감에 어울림" }
+      ],
+      bpms: [
+        { bpmId: "slow_60_75", weight: 3, reason: "깊고 무거운 소외감에 적합함" },
+        { bpmId: "slow_mid_76_90", weight: 3, reason: "현대적인 고립감과 도심형 외로움에 잘 맞음" },
+        { bpmId: "mid_91_105", weight: 1, reason: "걷는 듯한 거리감과 냉정한 흐름에 어울림" }
+      ]
+    }
+  },
+
+  community: {
+    id: "community",
+    label: "공동체",
+    labelEn: "Community",
+    recommendations: {
+      genres: [
+        { genreId: "folk_pop", weight: 4, reason: "함께 살아가는 사람 냄새 나는 정서를 담기 좋음" },
+        { genreId: "acoustic_pop", weight: 3, reason: "따뜻하고 가까운 공동의 분위기에 적합함" },
+        { genreId: "indie_pop", weight: 2, reason: "일상적이고 밝은 연대감을 표현하기 좋음" },
+        { genreId: "cinematic_pop", weight: 1, reason: "더 큰 규모의 연대와 서사를 만들기 좋음" }
+      ],
+      bpms: [
+        { bpmId: "mid_91_105", weight: 4, reason: "함께 걷는 듯한 안정된 흐름을 만들기 좋음" },
+        { bpmId: "slow_mid_76_90", weight: 2, reason: "따뜻하고 잔잔한 공동체 정서에 적합함" },
+        { bpmId: "mid_up_106_120", weight: 1, reason: "활기차고 생동감 있는 연대감에 어울림" }
+      ]
+    }
+  },
+
+  spring_life: {
+    id: "spring_life",
+    label: "봄/생명",
+    labelEn: "Spring / Life",
+    recommendations: {
+      genres: [
+        { genreId: "indie_pop", weight: 4, reason: "가볍고 생기 있는 시작의 정서를 담기 좋음" },
+        { genreId: "acoustic_pop", weight: 3, reason: "따뜻하고 자연적인 생명감을 표현하기 적합함" },
+        { genreId: "dream_pop", weight: 2, reason: "부드럽게 피어나는 공기와 빛을 담기 좋음" },
+        { genreId: "electronic_pop", weight: 1, reason: "더 반짝이고 현대적인 생동감에 어울림" }
+      ],
+      bpms: [
+        { bpmId: "mid_up_106_120", weight: 4, reason: "피어나는 생기와 밝은 추진감에 적합함" },
+        { bpmId: "mid_91_105", weight: 3, reason: "자연스럽고 대중적인 봄 무드에 잘 맞음" },
+        { bpmId: "up_121_135", weight: 1, reason: "더 활기차고 들뜬 생명감에 어울림" }
+      ]
+    }
+  },
+
+  autumn_death: {
+    id: "autumn_death",
+    label: "가을/죽음",
+    labelEn: "Autumn / Death",
+    recommendations: {
+      genres: [
+        { genreId: "ambient", weight: 4, reason: "스러짐과 정리되는 계절의 공기를 담기 좋음" },
+        { genreId: "ballad", weight: 3, reason: "상실과 마무리의 감정을 직접적으로 전달하기 좋음" },
+        { genreId: "folk_pop", weight: 2, reason: "계절의 쓸쓸함과 인간적인 체념을 표현하기 적합함" },
+        { genreId: "cinematic_pop", weight: 2, reason: "장면감 있는 소멸과 계절적 서사를 만들기 좋음" }
+      ],
+      bpms: [
+        { bpmId: "slow_60_75", weight: 4, reason: "깊은 여운과 스러짐의 감정선에 적합함" },
+        { bpmId: "slow_mid_76_90", weight: 3, reason: "가을 감성의 보편적 흐름에 잘 맞음" },
+        { bpmId: "free_or_very_slow", weight: 1, reason: "정지에 가까운 소멸감을 표현할 때 적합함" }
+      ]
+    }
+  },
+
+  day_light: {
+    id: "day_light",
+    label: "낮/빛",
+    labelEn: "Day / Light",
+    recommendations: {
+      genres: [
+        { genreId: "indie_pop", weight: 4, reason: "맑고 선명한 낮의 움직임과 잘 어울림" },
+        { genreId: "acoustic_pop", weight: 3, reason: "따뜻한 햇빛과 일상의 밝은 결을 담기 좋음" },
+        { genreId: "electronic_pop", weight: 2, reason: "반짝이는 빛과 현대적인 선명함에 적합함" },
+        { genreId: "house", weight: 1, reason: "더 활기찬 낮 에너지와 드라이브 감성에 어울림" }
+      ],
+      bpms: [
+        { bpmId: "mid_up_106_120", weight: 4, reason: "밝고 열린 낮의 흐름에 가장 적합함" },
+        { bpmId: "mid_91_105", weight: 3, reason: "부담 없는 일상형 밝음에 잘 맞음" },
+        { bpmId: "up_121_135", weight: 1, reason: "더 적극적이고 반짝이는 활기에 어울림" }
+      ]
+    }
+  },
+
+  confidence: {
+    id: "confidence",
+    label: "자신감",
+    labelEn: "Confidence",
+    recommendations: {
+      genres: [
+        { genreId: "electronic_pop", weight: 4, reason: "선명하고 현대적인 자기 확신의 에너지를 담기 좋음" },
+        { genreId: "indie_rock", weight: 3, reason: "직진성과 단단한 추진력을 표현하기 적합함" },
+        { genreId: "house", weight: 2, reason: "자신감 있는 리듬과 몸의 고양감을 만들기 좋음" },
+        { genreId: "rnb", weight: 2, reason: "여유롭고 매끈한 자기 확신의 무드에 어울림" }
+      ],
+      bpms: [
+        { bpmId: "mid_up_106_120", weight: 4, reason: "당당함과 전진감이 균형 있게 살아남" },
+        { bpmId: "up_121_135", weight: 2, reason: "더 강한 추진력과 자기 표현에 적합함" },
+        { bpmId: "mid_91_105", weight: 2, reason: "차분하지만 분명한 자신감에 어울림" }
+      ]
+    }
+  },
+
+  settlement: {
+    id: "settlement",
+    label: "정착",
+    labelEn: "Settlement",
+    recommendations: {
+      genres: [
+        { genreId: "acoustic_pop", weight: 4, reason: "안정감 있고 생활감 있는 정서를 담기 좋음" },
+        { genreId: "folk_pop", weight: 3, reason: "뿌리내리는 느낌과 인간적인 온기에 적합함" },
+        { genreId: "ambient", weight: 2, reason: "움직임 이후의 고요와 안정을 표현하기 좋음" },
+        { genreId: "piano_pop", weight: 1, reason: "담담한 정착과 정리의 감정선에 어울림" }
+      ],
+      bpms: [
+        { bpmId: "slow_mid_76_90", weight: 4, reason: "안정과 정리의 흐름을 가장 자연스럽게 담음" },
+        { bpmId: "mid_91_105", weight: 2, reason: "생활감 있는 정착의 리듬감을 주기 좋음" },
+        { bpmId: "slow_60_75", weight: 2, reason: "더 고요하고 무게감 있는 정착 정서에 적합함" }
       ]
     }
   },
