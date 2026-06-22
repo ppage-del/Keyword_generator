@@ -13,133 +13,344 @@
     "시공간",
     "영어 키워드"
   ],
-    "genreLibrary": {
-    "ballad": {
-      "label": "Ballad",
-      "description": "감정 전달과 멜로디 중심의 서정적 장르",
-      "typicalBpm": ["slow_60_75", "slow_mid_76_90"]
-    },
-    "rnb": {
-      "label": "R&B",
-      "description": "그루브와 친밀한 보컬 톤, 감정선이 중요한 장르",
-      "typicalBpm": ["slow_60_75", "slow_mid_76_90", "mid_91_105"]
-    },
-    "hip_hop": {
-      "label": "Hip Hop",
-      "description": "리듬 중심 전개와 말맛, 무드 설계가 중요한 장르",
-      "typicalBpm": ["slow_mid_76_90", "mid_91_105"]
-    },
-    "pop": {
-      "label": "Pop",
-      "description": "대중성과 멜로디 중심성이 강한 장르",
-      "typicalBpm": ["mid_91_105", "mid_up_106_120", "up_121_135"]
-    },
-    "alt_pop": {
-      "label": "Alt Pop",
-      "description": "대중성과 실험성이 적당히 섞인 현대 팝",
-      "typicalBpm": ["slow_mid_76_90", "mid_91_105", "mid_up_106_120"]
-    },
-    "dream_pop": {
-      "label": "Dream Pop",
-      "description": "몽환적이고 잔향감이 큰 질감 중심 장르",
-      "typicalBpm": ["slow_mid_76_90", "mid_91_105"]
-    },
-    "indie_rock": {
-      "label": "Indie Rock",
-      "description": "밴드 질감과 직선적 에너지, 청춘성이 있는 장르",
-      "typicalBpm": ["mid_up_106_120", "up_121_135"]
-    },
-    "folk_pop": {
-      "label": "Folk Pop",
-      "description": "어쿠스틱 온기와 대중적 멜로디의 결합",
-      "typicalBpm": ["slow_mid_76_90", "mid_91_105"]
-    },
-    "ambient": {
-      "label": "Ambient",
-      "description": "공간감, 질감, 여백 중심의 장르",
-      "typicalBpm": ["free_or_very_slow", "slow_60_75", "slow_mid_76_90"]
-    },
-    "trip_hop": {
-      "label": "Trip Hop",
-      "description": "어둡고 느린 도시적 그루브, 내면 독백에 잘 맞는 장르",
-      "typicalBpm": ["slow_mid_76_90", "mid_91_105"]
-    },
-    "house": {
-      "label": "House",
-      "description": "댄서블한 4비트 중심 전개",
-      "typicalBpm": ["up_121_135"]
-    },
-    "techno": {
-      "label": "Techno",
-      "description": "반복과 추진력이 강한 전자음악",
-      "typicalBpm": ["up_121_135", "fast_136_150"]
-    },
-    "trance": {
-      "label": "Trance",
-      "description": "상승감과 몰입감, 빌드업이 강한 전자음악",
-      "typicalBpm": ["fast_136_150"]
-    },
-    "drum_and_bass": {
-      "label": "Drum & Bass",
-      "description": "고속 질주감과 타이트한 리듬 중심 장르",
-      "typicalBpm": ["very_fast_160_180"]
-    },
-    "cinematic_pop": {
-      "label": "Cinematic Pop",
-      "description": "장면감, 서사, 넓은 공간감을 가진 팝",
-      "typicalBpm": ["slow_60_75", "slow_mid_76_90", "mid_91_105"]
-    }
+"genreLibrary": {
+  "ballad": {
+    "label": "Ballad",
+    "typicalBpm": "60-90 BPM",
+    "coreMood": ["직접적 감정 전달", "고백", "상실", "애도", "정리"],
+    "bestThemes": ["사랑", "이별", "슬픔", "애도", "패배", "끝"],
+    "commonInstruments": ["piano", "string pad", "soft drums", "subtle bass"],
+    "vocalTones": ["warm", "breathy", "cracked", "clear"],
+    "arrangementTip": "가사와 멜로디가 전면에 오도록 반주 밀도를 과하게 높이지 않는 것이 좋음.",
+    "relatedBpmIds": ["slow_60_75", "slow_mid_76_90"]
   },
+  "rnb": {
+    "label": "R&B",
+    "typicalBpm": "60-80 BPM / sometimes 85-100 BPM",
+    "coreMood": ["친밀함", "관능", "밤", "미묘한 감정선", "여유"],
+    "bestThemes": ["사랑", "만남", "불안", "자신감", "밤/어둠"],
+    "commonInstruments": ["electric piano", "sub bass", "snare with pocket", "clean synth"],
+    "vocalTones": ["airy", "whispery", "smooth", "warm"],
+    "arrangementTip": "리듬의 미세한 스윙과 보컬 프레이징이 핵심이라 드럼 그루브를 성급하게 꽉 채우지 않는 편이 좋음.",
+    "relatedBpmIds": ["slow_60_75", "slow_mid_76_90", "mid_91_105"]
+  },
+  "alt_pop": {
+    "label": "Alt Pop",
+    "typicalBpm": "95-125 BPM",
+    "coreMood": ["대중성", "세련됨", "조금 비틀린 감정", "현대성"],
+    "bestThemes": ["희망", "성장", "도전", "자신감", "거짓"],
+    "commonInstruments": ["hybrid synth", "tight drums", "processed vocal", "bass synth"],
+    "vocalTones": ["clear", "cool", "airy", "confident"],
+    "arrangementTip": "훅은 선명하게, 사운드는 약간 비틀어 차별점을 만드는 것이 잘 맞음.",
+    "relatedBpmIds": ["mid_91_105", "mid_up_106_120"]
+  },
+  "dream_pop": {
+    "label": "Dream Pop",
+    "typicalBpm": "70-95 BPM",
+    "coreMood": ["몽환", "잔향", "회상", "밤", "흐린 빛"],
+    "bestThemes": ["회상", "밤/어둠", "사랑", "소외", "평온"],
+    "commonInstruments": ["reverb guitar", "synth pad", "soft bass", "washed drums"],
+    "vocalTones": ["breathy", "airy", "distant", "soft"],
+    "arrangementTip": "명확한 타격감보다 공간감과 레이어의 흐림을 잘 만드는 것이 중요함.",
+    "relatedBpmIds": ["slow_mid_76_90", "mid_91_105"]
+  },
+  "indie_rock": {
+    "label": "Indie Rock",
+    "typicalBpm": "110-145 BPM",
+    "coreMood": ["직진성", "청춘성", "저항", "질주", "도전"],
+    "bestThemes": ["분노", "도전", "자유", "승리", "자신감"],
+    "commonInstruments": ["electric guitar", "live drums", "bass guitar", "shout layer"],
+    "vocalTones": ["raw", "clear", "urgent", "confident"],
+    "arrangementTip": "기타 리프나 드럼 에너지 중 하나를 확실히 중심에 두는 편이 좋음.",
+    "relatedBpmIds": ["mid_up_106_120", "up_121_135", "fast_136_150"]
+  },
+  "ambient": {
+    "label": "Ambient",
+    "typicalBpm": "free-80 BPM",
+    "coreMood": ["여백", "정지감", "추모", "공허", "심리적 공간"],
+    "bestThemes": ["애도", "절망", "고독", "소외", "가을/죽음"],
+    "commonInstruments": ["pad", "drone", "texture noise", "piano fragments"],
+    "vocalTones": ["breathy", "distant", "spoken fragments", "minimal"],
+    "arrangementTip": "리듬보다 공간과 잔향의 움직임이 곡을 이끈다는 생각으로 접근하는 게 좋음.",
+    "relatedBpmIds": ["free_or_very_slow", "slow_60_75", "slow_mid_76_90"]
+  },
+  "trip_hop": {
+    "label": "Trip Hop",
+    "typicalBpm": "75-105 BPM",
+    "coreMood": ["음영", "도시적 불안", "냉기", "거짓", "소외"],
+    "bestThemes": ["불안", "거짓", "배신", "속박", "밤/어둠"],
+    "commonInstruments": ["dusty drums", "sub bass", "vinyl texture", "minor-key keys"],
+    "vocalTones": ["whispery", "cool", "detached", "smoky"],
+    "arrangementTip": "로우엔드와 스네어 질감이 무드의 핵심이므로 톤 선택이 매우 중요함.",
+    "relatedBpmIds": ["slow_mid_76_90", "mid_91_105"]
+  },
+  "house": {
+    "label": "House",
+    "typicalBpm": "115-130 BPM",
+    "coreMood": ["고양감", "반복의 쾌감", "열림", "축제", "자유"],
+    "bestThemes": ["축하", "자유", "행복", "승리", "자신감"],
+    "commonInstruments": ["four-on-the-floor kick", "bass groove", "piano stab", "synth lead"],
+    "vocalTones": ["clear", "anthemic", "chopped", "uplifting"],
+    "arrangementTip": "킥-베이스의 연결감과 반복 훅이 핵심이며, 작은 변화로 긴장을 유지하는 장르.",
+    "relatedBpmIds": ["mid_up_106_120", "up_121_135"]
+  },
+  "techno": {
+    "label": "Techno",
+    "typicalBpm": "120-140 BPM / broader 120-160 BPM",
+    "coreMood": ["압력", "기계성", "반복", "긴장", "몰입"],
+    "bestThemes": ["분노", "속박", "거짓", "불안", "도전"],
+    "commonInstruments": ["driving kick", "industrial percussion", "acid/synth sequence", "dark bass"],
+    "vocalTones": ["minimal", "spoken", "processed", "chant-like"],
+    "arrangementTip": "멜로디보다 리듬/텍스처/점진적 변화가 더 중요할 때가 많음.",
+    "relatedBpmIds": ["up_121_135", "fast_136_150"]
+  },
+  "drum_and_bass": {
+    "label": "Drum & Bass",
+    "typicalBpm": "165-185 BPM",
+    "coreMood": ["광속 질주", "긴박함", "혼란", "극한 에너지"],
+    "bestThemes": ["분노", "극단적 불안", "승부", "추격", "붕괴 직전의 긴장"],
+    "commonInstruments": ["breakbeat", "reese bass", "sharp snare", "fast hats"],
+    "vocalTones": ["cut-up", "urgent", "minimal hook", "aggressive"],
+    "arrangementTip": "리듬 자체가 곡의 캐릭터이므로 드럼 편집과 베이스 리듬 설계가 핵심임.",
+    "relatedBpmIds": ["very_fast_160_180"]
+  },
+  "folk_pop": {
+    "label": "Folk Pop",
+    "typicalBpm": "85-110 BPM",
+    "coreMood": ["사람 냄새", "공동체", "여정", "정착", "회상"],
+    "bestThemes": ["회상", "공동체", "환대", "정착", "여정"],
+    "commonInstruments": ["acoustic guitar", "light percussion", "upright/soft bass", "group claps"],
+    "vocalTones": ["warm", "plain", "storytelling", "group-friendly"],
+    "arrangementTip": "화려함보다 이야기와 손맛이 살아 있는 연주감이 강점임.",
+    "relatedBpmIds": ["slow_mid_76_90", "mid_91_105"]
+  },
+  "cinematic_pop": {
+    "label": "Cinematic Pop",
+    "typicalBpm": "70-125 BPM",
+    "coreMood": ["장면감", "서사", "상승", "엔딩감", "승리/비극의 확대"],
+    "bestThemes": ["희망", "절망", "승리", "끝", "가을/죽음", "성장"],
+    "commonInstruments": ["piano", "strings", "impacts", "wide synth", "big toms"],
+    "vocalTones": ["clear", "anthemic", "emotional", "dramatic"],
+    "arrangementTip": "작은 시작에서 큰 확장으로 가는 다이내믹 설계가 매우 중요함.",
+    "relatedBpmIds": ["slow_mid_76_90", "mid_91_105", "mid_up_106_120"]
+  },
+  "acoustic_pop": {
+    "label": "Acoustic Pop",
+    "typicalBpm": "85-115 BPM",
+    "coreMood": ["따뜻함", "친밀함", "진솔함", "봄빛", "환대"],
+    "bestThemes": ["사랑", "환대", "봄/생명", "낮/빛", "정착"],
+    "commonInstruments": ["acoustic guitar", "piano", "soft percussion", "light bass"],
+    "vocalTones": ["warm", "clear", "gentle", "close-mic"],
+    "arrangementTip": "작은 편성으로도 충분히 감정이 전달되므로 과한 레이어보다 질감 선택이 중요함.",
+    "relatedBpmIds": ["slow_mid_76_90", "mid_91_105", "mid_up_106_120"]
+  },
+  "synthwave": {
+    "label": "Synthwave",
+    "typicalBpm": "90-125 BPM",
+    "coreMood": ["야간 도시", "네온", "질주", "차가운 향수", "미래적 복고"],
+    "bestThemes": ["밤/어둠", "거짓", "불안", "여정", "자신감"],
+    "commonInstruments": ["analog synth", "gated snare", "driving bass", "retro arp"],
+    "vocalTones": ["cool", "processed", "detached", "anthemic"],
+    "arrangementTip": "패드-베이스-드럼의 복고적 밸런스를 잘 잡으면 무드가 빠르게 살아남.",
+    "relatedBpmIds": ["mid_91_105", "up_121_135"]
+  },
+  "post_rock": {
+    "label": "Post Rock",
+    "typicalBpm": "80-130 BPM",
+    "coreMood": ["점진적 확장", "침묵에서 폭발", "성장", "희망", "광활함"],
+    "bestThemes": ["성장", "희망", "여정", "승리", "도전"],
+    "commonInstruments": ["delay guitar", "live drums", "bass swell", "ambient textures"],
+    "vocalTones": ["instrumental", "minimal vocal", "distant", "chant-like"],
+    "arrangementTip": "반복을 통해 서서히 커지는 빌드업 곡선이 장르의 핵심 매력임.",
+    "relatedBpmIds": ["mid_91_105", "mid_up_106_120"]
+  },
+  "neo_soul": {
+    "label": "Neo Soul",
+    "typicalBpm": "70-95 BPM",
+    "coreMood": ["성숙함", "부드러움", "따뜻한 밤", "사적인 감정선"],
+    "bestThemes": ["평온", "사랑", "환대", "고독", "자신감"],
+    "commonInstruments": ["electric piano", "soft bass", "laid-back drums", "jazzy chords"],
+    "vocalTones": ["warm", "smooth", "airy", "soulful"],
+    "arrangementTip": "코드 컬러와 보컬 뉘앙스가 분위기의 절반 이상을 결정함.",
+    "relatedBpmIds": ["slow_mid_76_90", "mid_91_105"]
+  },
+  "lofi_hiphop": {
+    "label": "Lo-fi Hip Hop",
+    "typicalBpm": "60-85 BPM",
+    "coreMood": ["편안함", "회상", "낡은 질감", "집중", "소규모 감정"],
+    "bestThemes": ["회상", "평온", "고독", "정착", "늦은 밤 메모"],
+    "commonInstruments": ["dusty drums", "jazz chords", "vinyl noise", "soft bass"],
+    "vocalTones": ["spoken fragments", "sampled voice", "minimal", "breathy"],
+    "arrangementTip": "완벽함보다 거친 질감과 친근한 루프 감각이 장르성을 잘 만듦.",
+    "relatedBpmIds": ["slow_60_75", "slow_mid_76_90"]
+  },
+  "piano_pop": {
+    "label": "Piano Pop",
+    "typicalBpm": "65-105 BPM",
+    "coreMood": ["솔직함", "독백", "진실", "정리", "담담한 슬픔"],
+    "bestThemes": ["진실", "이별", "슬픔", "애도", "패배"],
+    "commonInstruments": ["piano", "light strings", "soft drums", "subtle bass"],
+    "vocalTones": ["clear", "close", "cracked", "gentle"],
+    "arrangementTip": "피아노 리듬 패턴 하나만으로도 곡의 감정선이 크게 결정되므로 반주 설계가 중요함.",
+    "relatedBpmIds": ["slow_60_75", "slow_mid_76_90", "mid_91_105"]
+  },
+  "indie_pop": {
+    "label": "Indie Pop",
+    "typicalBpm": "95-120 BPM",
+    "coreMood": ["밝음", "일상성", "청춘", "가벼운 회복", "친근한 움직임"],
+    "bestThemes": ["행복", "희망", "만남", "우정", "봄/생명", "낮/빛"],
+    "commonInstruments": ["clean guitar", "light synth", "snappy drums", "bass groove"],
+    "vocalTones": ["clear", "youthful", "light", "smiling"],
+    "arrangementTip": "멜로디 훅과 리듬 훅을 둘 다 단순하게 잡을수록 강해짐.",
+    "relatedBpmIds": ["mid_91_105", "mid_up_106_120"]
+  },
+  "electronic_pop": {
+    "label": "Electronic Pop",
+    "typicalBpm": "100-130 BPM",
+    "coreMood": ["선명함", "광택", "도시적 자신감", "축하", "현대성"],
+    "bestThemes": ["축하", "승리", "자신감", "행복", "도전"],
+    "commonInstruments": ["bright synth", "tight kick", "sidechained pad", "hook lead"],
+    "vocalTones": ["clear", "processed", "anthemic", "confident"],
+    "arrangementTip": "후렴에서 사운드 폭이 확 넓어지는 구조가 특히 잘 어울림.",
+    "relatedBpmIds": ["mid_up_106_120", "up_121_135", "fast_136_150"]
+  }
+},
   "bpmLibrary": {
-    "free_or_very_slow": {
-      "label": "Free / Very Slow",
-      "range": [0, 59],
-      "notes": "박보다 공기감과 질감이 앞서는 영역",
-      "recommendedGenres": ["ambient"]
-    },
-    "slow_60_75": {
-      "label": "60-75 BPM",
-      "range": [60, 75],
-      "notes": "서정, 애도, 고독, 무게감, 깊은 여백에 적합",
-      "recommendedGenres": ["ballad", "rnb", "ambient", "cinematic_pop"]
-    },
-    "slow_mid_76_90": {
-      "label": "76-90 BPM",
-      "range": [76, 90],
-      "notes": "회상, 잔잔한 그루브, 도시적 감성, 친밀한 보컬에 적합",
-      "recommendedGenres": ["rnb", "dream_pop", "trip_hop", "folk_pop", "ballad"]
-    },
-    "mid_91_105": {
-      "label": "91-105 BPM",
-      "range": [91, 105],
-      "notes": "감정과 리듬이 공존하는 가장 유연한 구간",
-      "recommendedGenres": ["alt_pop", "pop", "hip_hop", "rnb", "cinematic_pop"]
-    },
-    "mid_up_106_120": {
-      "label": "106-120 BPM",
-      "range": [106, 120],
-      "notes": "전진감, 성장성, 밴드감, 대중적인 에너지에 적합",
-      "recommendedGenres": ["pop", "indie_rock"]
-    },
-    "up_121_135": {
-      "label": "121-135 BPM",
-      "range": [121, 135],
-      "notes": "고양감, 해방감, 댄서블함이 강한 구간",
-      "recommendedGenres": ["house", "pop", "indie_rock", "techno"]
-    },
-    "fast_136_150": {
-      "label": "136-150 BPM",
-      "range": [136, 150],
-      "notes": "긴장, 몰입, 과열감, 상승감이 강한 구간",
-      "recommendedGenres": ["techno", "trance"]
-    },
-    "very_fast_160_180": {
-      "label": "160-180 BPM",
-      "range": [160, 180],
-      "notes": "폭주, 해방, 혼란, 극적인 에너지에 적합",
-      "recommendedGenres": ["drum_and_bass"]
-    }
+  "free_or_very_slow": {
+    "label": "Free / Very Slow",
+    "range": "0-59 BPM",
+    "energy": "very low",
+    "coreMood": ["정지감", "추모", "극도의 절제", "붕괴 직전의 정서"],
+    "worksBestFor": [
+      "애도",
+      "절망",
+      "극단적으로 느린 회상",
+      "호흡 위주의 인트로/아웃트로"
+    ],
+    "commonGenres": ["ambient", "cinematic_pop"],
+    "writingTip": "드럼보다 패드, 피아노, 드론, 숨소리, 잔향 중심 구성이 잘 어울림.",
+    "warning": "메인 파트 전체를 이 구간으로 끌고 가면 곡이 지나치게 정체될 수 있음."
   },
+  "slow_60_75": {
+    "label": "60-75 BPM",
+    "range": "60-75 BPM",
+    "energy": "low",
+    "coreMood": ["깊은 슬픔", "체념", "고독", "무게감", "느린 사랑"],
+    "worksBestFor": [
+      "이별",
+      "슬픔",
+      "애도",
+      "패배",
+      "고독",
+      "느린 R&B",
+      "로우파이 감성"
+    ],
+    "commonGenres": ["ballad", "rnb", "ambient", "piano_pop", "lofi_hiphop"],
+    "writingTip": "빈 공간을 채우기 위해 리버브, 롱 패드, 느린 아르페지오, 여백 있는 보컬 프레이징이 잘 맞음.",
+    "warning": "리듬 악기가 너무 많으면 느린 템포의 장점보다 답답함이 커질 수 있음."
+  },
+  "slow_mid_76_90": {
+    "label": "76-90 BPM",
+    "range": "76-90 BPM",
+    "energy": "low-mid",
+    "coreMood": ["회상", "잔잔한 사랑", "평온", "불안의 독백", "도심 야간 감성"],
+    "worksBestFor": [
+      "회상",
+      "사랑",
+      "평온",
+      "불안",
+      "밤/어둠",
+      "정착",
+      "담백한 고백"
+    ],
+    "commonGenres": ["dream_pop", "ballad", "rnb", "neo_soul", "trip_hop", "acoustic_pop"],
+    "writingTip": "킥을 과하게 세우기보다 베이스 톤과 공간계 질감으로 무드를 만드는 편이 좋음.",
+    "warning": "곡이 너무 평평하게 흐를 수 있으니 벌스/후렴의 다이내믹 차이를 의식하는 것이 좋음."
+  },
+  "mid_91_105": {
+    "label": "91-105 BPM",
+    "range": "91-105 BPM",
+    "energy": "mid",
+    "coreMood": ["균형감", "일상성", "걸어가는 느낌", "희망", "따뜻한 추진력"],
+    "worksBestFor": [
+      "희망",
+      "성장",
+      "우정",
+      "만남",
+      "공동체",
+      "낮/빛",
+      "정착"
+    ],
+    "commonGenres": ["indie_pop", "acoustic_pop", "folk_pop", "hiphop_adjacent", "piano_pop"],
+    "writingTip": "가사 전달력과 리듬감이 모두 확보되는 구간이라 스토리텔링 곡에 매우 유리함.",
+    "warning": "너무 무난해질 수 있으므로 리듬 패턴이나 악기 질감에서 캐릭터를 주는 것이 좋음."
+  },
+  "mid_up_106_120": {
+    "label": "106-120 BPM",
+    "range": "106-120 BPM",
+    "energy": "mid-high",
+    "coreMood": ["밝음", "전진감", "자신감", "봄/생명", "경쾌한 회복"],
+    "worksBestFor": [
+      "행복",
+      "도전",
+      "자유",
+      "봄/생명",
+      "자신감",
+      "활기 있는 낮/빛"
+    ],
+    "commonGenres": ["indie_pop", "electronic_pop", "acoustic_pop", "house", "alt_pop"],
+    "writingTip": "후렴에서 에너지가 잘 뜨는 구간이라 훅 중심 구조에 특히 강함.",
+    "warning": "악기 수를 과하게 늘리면 산만해질 수 있으니 중심 훅을 분명히 두는 편이 좋음."
+  },
+  "up_121_135": {
+    "label": "121-135 BPM",
+    "range": "121-135 BPM",
+    "energy": "high",
+    "coreMood": ["고양감", "축제감", "질주감", "해방감", "승리"],
+    "worksBestFor": [
+      "축하",
+      "승리",
+      "자유",
+      "도전",
+      "행복의 폭발",
+      "밝은 클럽형 무드"
+    ],
+    "commonGenres": ["house", "electronic_pop", "techno", "indie_rock", "synthwave"],
+    "writingTip": "킥 중심 그루브와 반복 훅이 매우 잘 살아나며, 드롭/빌드업 구조와 궁합이 좋음.",
+    "warning": "서정적인 감정선은 얕아질 수 있으니 가사/브리지로 감정 깊이를 보완하는 게 좋음."
+  },
+  "fast_136_150": {
+    "label": "136-150 BPM",
+    "range": "136-150 BPM",
+    "energy": "very high",
+    "coreMood": ["격앙", "긴장", "분출", "위기", "극단적 추진력"],
+    "worksBestFor": [
+      "분노",
+      "급박한 불안",
+      "극적인 승리",
+      "강한 추격감",
+      "하프타임 트랩 감각"
+    ],
+    "commonGenres": ["trap_adjacent", "dubstep_adjacent", "indie_rock", "electronic_pop", "techno"],
+    "writingTip": "하프타임 체감(실제 BPM은 빠르지만 느리게 느끼는 리듬)도 적극 활용할 수 있는 구간.",
+    "warning": "전체를 같은 강도로 밀면 피로도가 높아질 수 있으므로 브레이크다운이 중요함."
+  },
+  "very_fast_160_180": {
+    "label": "160-180 BPM",
+    "range": "160-180 BPM",
+    "energy": "extreme",
+    "coreMood": ["광폭성", "과열", "혼란", "극한 질주", "붕괴 직전의 에너지"],
+    "worksBestFor": [
+      "드럼앤베이스형 폭발",
+      "극단적 분노",
+      "하드한 추격감",
+      "극도로 긴박한 전개"
+    ],
+    "commonGenres": ["drum_and_bass", "jungle", "hardstyle_adjacent"],
+    "writingTip": "킥/스네어 밀도와 베이스 움직임이 곡의 핵심 캐릭터가 됨.",
+    "warning": "보컬 멜로디와 가사 전달은 어려워질 수 있으므로 훅 설계를 단순하게 가져가는 편이 좋음."
+  }
+},
    "themeRecommendations": {
     "love": {
       "genres": [
